@@ -1,0 +1,4 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
+[84] biber:340> INFO - === Du iun 21, 2026, 20:06:55
+[99] Biber.pm:419> INFO - Reading 'thesis.bcf'
