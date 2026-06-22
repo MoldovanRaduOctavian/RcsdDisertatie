@@ -2,136 +2,126 @@
 
 %\setcounter{page}{\value{page}}
 \chapter{Introducere}
-\label{cap:Introducere}
+% \label{cap:Introducere}
 %\setcounter{page}{7}
 %\addtocounter{page}{6}
-\pagestyle{headings}
-Ce se scrie aici, sincer nimic:
-\begin{itemize}
-    \item Contextul
-    \item Conturarea domeniului exact al temei
-    \item Se răspunde la întrebările: \textbf{ce} (s-a făcut)?, \textbf{de ce} (s-a făcut, adică motivația; ce se rezolvă, la ce este util, etc.)?, \textbf{cum} (s-a făcut, adică particularitățile abordării, prezentate sumar).
-    \item Introducerea se termină cu o descriere a conținutului lucrării, de genul: Cap X descrie ..., Cap Y prezintă ...
-    \item Introducerea reprezintă o sinteză a lucrării, din care cititorul trebuie să-și poată da bine seama dacă lucrarea prezintă sau nu interes pentru el. 
-\item reprezintă cca 5\% din lucrare
-\end{itemize}
 
-\section{Contextul proiectului}
-Subcapitolul este scris cu font Times New Roman 14 puncte, bold. Pentru numerotare se folosesc cifre arabe, de ex: $X.Y$ unde X reprezintă numărul capitolului, iar Y numărul subcapitolului. Distanța de la titlul subcapitolului până la primul rând scris este de 8 puncte.
+Limbajele de programare compilate, precum \textbf{C} și \textbf{C++}, sunt de cele mai multe ori
+alegerea corectă pentru dezvoltarea de sisteme și aplicații pentru care performanța în timpul
+rulării este un aspect de importanță critică, însă alegerea lor prezintă inconveniente în ceea ce
+privește procesul de build. Cerințele ridicate de memorie și timpii îndelungați de compilare cresc
+proporțional cu dimensiunea proiectului aflat în dezvoltare.
 
-\subsection{Subsecțiune}
-Distanța înainte și după titlul subcapitolului este de 8 puncte (acest lucru este realizat implicit în fișierul de stil furnizat). 
-Fiecare tabel introdus în lucrare este numerotat astfel: Tabel $x.y$ unde x reprezintă numărul capitolului, iar y numărul tabelului din capitol. 
-Se lasă o distanță de 8 puncte între text și tabel. (tabelul) %\ref{table:nonlin}).
-\begin{table}[ht]
-\centering                          % tabel centrat 
-\begin{tabular}{|c|c|c|c|}          % 4 coloane centrate 
-\hline\hline                        % linie orizontala dubla
-Case & Method\#1 & Method\#2 & Method\#3 \\ [0.5ex]   % inserare tabel
-%heading
-\hline                              % linie orizontal simpla
-1 & 50 & 837 & 970 \\               % corpul tabelului 
-2 & 47 & 877 & 230 \\
-3 & 31 & 25 & 415 \\[1ex]           % [1ex] adds vertical space
-\hline                              
-\end{tabular}
-\caption{Nonlinear Model Results}   % titlul tabelului
-% \label{table:nonlin}                % \label{table:nonlin} introduce eticheta folosita pentru referirea tabelului in text; referirea in text se va face cu \ref{table:nonlin}
-\end{table}
+Timpii îndelungați de compilare sunt de natură să incetinească drastic procesul de dezvoltare, ceea
+ce determină întârzieri ce afectează livrarea produsului către clienți și pierderi costisitoare de
+timp pentru evoluția proiectului.
 
-Fiecare figură introdusă în text este citată (de ex: în figura $x.y$ este prezentată ...) și numerotată.
-Numerotarea se face automat astfel: Figura $x.y$ unde x reprezintă numărul capitolului, iar y numărul figurii din acel capitol. Ex: figura % \ref{fig:imag}
+Evident, investiția în hardware mai performant pentru a reduce timpul de compilare poate diminua
+magnitudinea problemei, însă se estimează că în următorii zece ani, puterea de procesare se va satura
+(legea lui Moor nu va mai fi valabilă începând din 2036 \cite{powell2008quantum}), iar accentul se 
+va muta asupra optimizării resurselor de rețea. Progresele în domeniul comunicațiilor vor permite
+transferuri rapide și eficiente de date între nodurile sistemelor distribuite, susținând astfel 
+implementarea și extinderea proceselor distribuite de compilare. Această abordare permite
+fragmentarea și procesarea paralelă a sarcinilor de build pe mai multe noduri din rețea, fie ele stații locale, servere dedicate sau resurse din cloud. Drept rezultat, proiectele software vor putea beneficia de timpi reduși de compilare și de o utilizare mai eficientă a resurselor disponibile, contribuind la creșterea productivității și la reducerea blocajelor din ciclurile de dezvoltare.
 
-\begin{figure}[h]
+Compilarea folosind mai multe sisteme de calcul care comunică prin rețea este susținută și de faptul
+că, odată cu răspândirea utilizării generale a calculatoarelor și a resurselor cloud, timpii de
+neutilizare ai sistemelor (Idle Times), au crescut considerabil. În instituții educaționale, calculatoarele au o durată de neutilizare medie de 28\% (adică 2672 de ore din total de 9550 de 
+ore de funcționare) \cite{kondo2009cost}. Așadar, exploatarea resurselor de calcul ale sistemelor
+neutilizate reprezintă o eficientizare binevenită pentru reducerea duratei de build.
+
+% \section{Fundamentare teoretică}
+Pentru a putea înțelege de ce durata procesului de compilare pentru \textbf{C/C++} (dar mai ales pentru C++) este semnificativ mai mare față de alte limbaje de programare, găsesc esențial să 
+explicăm modul de desfășurare al acestui proces.
+
+Transformarea codului sursă într-un fișier executabil este compusă din trei etape majore. Primul
+pas îl reprezintă expandarea directivelor de preprocesare, moment în care dependințele dintre
+fișierele sursă ale proiectului sunt determinate. Rezultatul etapei de preprocesare îl reprezintă
+o colecție de unități de translație (Translation Units), fiecare fișier sursă având asociat un
+astfel de \textbf{translation unit}. Urmează etapa de compilare, în urma căreia unitățile de
+translație sunt transformate în fișiere ce conțin cod mașină, numite fișiere obiect (Object Files).
+În ultima etapa, numită link-editare, toate fișierele obiect rezultate în urma compilării sunt 
+conectate pentru a genera fișierul exectuabil al proiectului \cite{stroustrup2013c++}.
+
+% \section{Preprocesarea}
+
+Etapa de preprocesare este \cite{stroustrup2013c++} responsabilă de pregătirea fișierelor sursă
+pentru a fi furnizate ca intrare pentru compilator. În \textbf{C/C++}, fiecare simbol poate fi definit o singură dată, însă declararea simbolului poate să apară de mai multe ori, întrucât fiecare 
+simbol utilizat într-o unitate de translație, trebuie să aibă o declarație locală. Această chestiune
+este tratată de mecanismul de includere a fișierelor, folosind directiva de preprocesare
+\textbf{\#include}. Figura \ref{fig:preprocessing} exemplifică mecanismul de preprocesare al
+fișierelor sursă.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[]{image}	%numele fisierului
-    \caption{Numele figurii}
-    \label{fig:imag}
+    \includegraphics[width=0.8\linewidth, height=0.60\linewidth]{preprocessing.jpg}
+    \caption{Preprocesarea fișierelor sursă \cite{stroustrup2013c++}}
+    \label{fig:preprocessing}
 \end{figure}
 
+% \subsection{Compilarea unităților de translație}
 
-Ecuații:
-\begin{equation}
-    \Delta =\sum_{i=1}^N w_i (x_i - \bar{x})^2 .
-\end{equation}
+Unitățile de translație sunt furnizate ca date de intrare pentru compilator, care detectează
+erorile de sintaxă și produce fișierele obiect, care deși conțin cod mașină, nu pot fi încă executate. Figura exemplifică etapa de compilare.
 
-\subsection{Alte exemple în \LaTeX}
-\label{subsec:s10} %aceasta trebuie adaugat pentru a referi o sectiune  
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, height=0.50\linewidth]{compilation.jpg}
+    \caption{Compilarea unităților de translație \cite{stroustrup2013c++}}
+    \label{fig:compilation}
+\end{figure}
 
-Modus ponens modificat: 
-% aceasta este o ecuatie 
-\begin{equation} 
-  \frac{a \land a \rightarrow b}
-       {b}
-\label{eq:e50}
-\end{equation}
+% \subsubsection{Link-editarea}
 
-Acolada: 
+Etapa de linking \cite{stroustrup2013c++} conectează fișierele obiect pentru ca declarațiile locale
+să fie disponibile în  celelalte unități de translație. Ieșirea linker-ului reprezintă un fișier 
+executabil, care este rezultatul final al procesului de build. 
 
-\[\left \{ 
-    \begin{array}{l}
-        p =\frac{x}{x+y+z} \\
-        q = \frac{y}{x+y+z}\\ 
-        r = \frac{z}{x+y+z}
-    \end{array}\right.
-\]
-        
-Itemi ne-numerotați:  
-\begin{itemize}
-    \item numărul 1 
-    \item numărul 2 
-    \item numărul 3 
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, height=0.55\linewidth]{linking.jpg}
+    \caption{Generearea fișierului executabil \cite{stroustrup2013c++}}
+    \label{fig:linking}
+\end{figure}
 
-Itemi numerotați:
-\begin{enumerate}
-    \item numărul 1 
-    \item numărul 2 
-    \item numărul 3 
-\end{enumerate}
+% \subsection{Cauze pentru creșterea duratei de build}
 
-%asa se citeaza o lucrare                    
-Anumiți autori spun că  % \cite{Zhou04} 
+Proiectele complexe, în care numărul de dependințe este mare, suferă des de recompilarea unui număr
+mare de fișiere, ceea ce crește semnificativ durata de compilare. Motivul pentru care compilarea
+excesivă este greu de evitat îl reprezintă faptul că, dacă un fișier header care este inclus de
+un număr mare de fișiere sursă este modificat, atunci se declanșează recompilarea tuturor fișierelor
+sursă care depind de acel header. Când numărul de fișiere header incluse este mare, există șansa
+să se creeze cicluri de dependință, o situație în care mai multe fișiere se includ reciproc
+\cite{martin2000design}.
 
+Totodată, mecanismul de \textbf{templating} din \textbf{C++}, permite definirea de clase și
+funcții generice, care pot fi instanțiate folosind tipuri de date diverse. Întrucât \textbf{C++}
+este un limbaj de programare cu sistem static de tipuri (statically typed), de fiecare data
+când un template este invocat pentru un nou tip de argument, codul pentru implementarea specifică
+acelui tip de date este generat în mod automat de către compilator \cite{herity1998c++}. În cazul în care template-ul este instanțiat pentru foarte multe tipuri de date diferite, compiler-ul generează un volum semnificativ de cod repetitiv, ceea ce poate încetini procesul de build 
+\cite{rotithor1999measurement}. 
 
-Un tabel mai complicat este % \ref{Mom}.
-\begin{table}
-      \begin{center}
-            \begin{tabular}{|l|l|l|l|l|l|l|}
-                \hline 
-                & \multicolumn{3}{c|}{belief} & \multicolumn{3}{c|}{atomicity} \\
-                \cline{2-7}
-                & $poor$ & $avg$ & $good$ & $poor$ & $avg$ & $good$ \\ 
-        	\hline
-                $success$   &  0.1    &  0.2    &  0.3    & 0.4    & 0.5    &  0.6     \\
-                $failure$   &  0.1    &  0.2    &  0.3    & 0.4    & 0.5    &  0.6     \\
-                                                    \hline
-	    \end{tabular}
-        \end{center}
-    \caption{Multiplicarea Opiniilor Multinomiale}
-    \label{Mom}
-\end{table}
+Pentru a atrage atenția asupra scenariilor în care timpul de build devine o problemă, voi invoca
+creșterea exponențială a volumului de cod sursă care intră în componența unor proiecte open-source
+cunoscute, precum \textbf{Linux Kernel} și \textbf{Android}\cite{burnette2009hello}. Dimensiunea
+codebase-ului pentru acestea se ridică la ordinul zecilor de milioane de linii de cod. Creșterea
+volumului de cod de-a lungul timpului este vizibilă în Figura \ref{fig:locs}.
 
-                                                                                                                                                                                                                                                                  
-Un algoritm poate fi scris astfel:
-%\usepackage{algorithm} si \usepackage{algorithmic}  trebuie incluse la inceputul documentului
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth, height=0.27\linewidth]{locs.jpg}
+    \caption{Creșterea codebase-ului de-a lungul anilor pentru câteva proiecte open-source \cite{lim2014distributed}}
+    \label{fig:locs}
+\end{figure}
 
-\begin{algorithm}
- \caption{Commitment decision}
-  \label{ftalg}
-   \begin{algorithmic}
-     \IF{$Committed(G_{1},GR,\alpha)$} 
-      \STATE $BRT_{\alpha}$ = $PredictBRT(G_{1},GR,\alpha,C_{GR})$
-      \STATE $C_{\beta}$ = $ContextUpdate(C_{\beta},o)$
-      \STATE $BRT_{\beta}$ = $PredictBRT(G_{1},G_{2},\beta,C_{\beta})$
-      \STATE $BRT_{\alpha}^{o}$ = $BRTReplace(BRT_{\alpha},BRT_{\beta})$
-      \STATE $utility$ = $Eval(BRT_{\alpha}^{o})-Eval(BRT_{\alpha})$
-     \ENDIF
-      \IF{$utility \ge CommunicationCost(G_{2})$}
-        \STATE $Int.To(G_{1},Communicate(G_{1},G_{2},o))$
-      \ENDIF
-   \end{algorithmic}
-\end{algorithm}
+\newpage
 
-\section*{Mulțumiri}
-Mulțumiri lui Aristotel pentru Secțiunea % \ref{subsec:s10} %Asa se refera o sectiune
+Pentru sistemul de operare mobil \textbf{Android 4.2.2}, timpul de build total ajunge la 51 de
+minute \cite{lim2014distributed}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth, height=0.32\linewidth]{android.jpg}
+    \caption{Timp de build Android \cite{lim2014distributed}}
+    \label{fig:android}
+\end{figure}

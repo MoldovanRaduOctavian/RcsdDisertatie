@@ -1,0 +1,590 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{powell2008quantum}{article}{}
+      \name{author}{1}{}{%
+        {{hash=32de9d11199abc2b44405115b65e4887}{%
+           family={Powell},
+           familyi={P\bibinitperiod},
+           given={James\bibnamedelima R},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{32de9d11199abc2b44405115b65e4887}
+      \strng{fullhash}{32de9d11199abc2b44405115b65e4887}
+      \strng{bibnamehash}{32de9d11199abc2b44405115b65e4887}
+      \strng{authorbibnamehash}{32de9d11199abc2b44405115b65e4887}
+      \strng{authornamehash}{32de9d11199abc2b44405115b65e4887}
+      \strng{authorfullhash}{32de9d11199abc2b44405115b65e4887}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{8}
+      \field{title}{The quantum limit to Moore's law}
+      \field{volume}{96}
+      \field{year}{2008}
+      \field{pages}{1247\bibrangedash 1248}
+      \range{pages}{2}
+    \endentry
+    \entry{kondo2009cost}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=e43c44dbaf53f796130c60c02e56605a}{%
+           family={Kondo},
+           familyi={K\bibinitperiod},
+           given={Derrick},
+           giveni={D\bibinitperiod}}}%
+        {{hash=abb15747d2fd60bea22df117a3eae3d2}{%
+           family={Javadi},
+           familyi={J\bibinitperiod},
+           given={Bahman},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0013c99ff7a78d245efbd43046577dd2}{%
+           family={Malecot},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e978f6f36e4e191a7db0b27476a82ef1}{%
+           family={Cappello},
+           familyi={C\bibinitperiod},
+           given={Franck},
+           giveni={F\bibinitperiod}}}%
+        {{hash=c8cf0cc669808e794e1836fbd4a87a66}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={David\bibnamedelima P},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{1531bacf261a1e55500068ff419a5685}
+      \strng{fullhash}{bd04b9a199aa31cbc84eaf02372b476a}
+      \strng{bibnamehash}{bd04b9a199aa31cbc84eaf02372b476a}
+      \strng{authorbibnamehash}{bd04b9a199aa31cbc84eaf02372b476a}
+      \strng{authornamehash}{1531bacf261a1e55500068ff419a5685}
+      \strng{authorfullhash}{bd04b9a199aa31cbc84eaf02372b476a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2009 IEEE International Symposium on Parallel \& Distributed Processing}
+      \field{title}{Cost-benefit analysis of cloud computing versus desktop grids}
+      \field{year}{2009}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+    \endentry
+    \entry{stroustrup2013c++}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4975813514faee20fb6fcdb39a08af6f}{%
+           family={Stroustrup},
+           familyi={S\bibinitperiod},
+           given={Bjarne},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Professional}%
+      }
+      \strng{namehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{fullhash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{bibnamehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authorbibnamehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authornamehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authorfullhash}{4975813514faee20fb6fcdb39a08af6f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The C++ Programming Language}
+      \field{year}{2013}
+    \endentry
+    \entry{martin2000design}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6f41df64eb0dc4855be70172368604c2}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{fullhash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{bibnamehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{authorbibnamehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{authornamehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{authorfullhash}{6f41df64eb0dc4855be70172368604c2}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Object Mentor}
+      \field{number}{34}
+      \field{title}{Design principles and design patterns}
+      \field{volume}{1}
+      \field{year}{2000}
+      \field{pages}{597}
+      \range{pages}{1}
+    \endentry
+    \entry{herity1998c++}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5af5dd2a38ada564bbe9f1cf1fd62d43}{%
+           family={Herity},
+           familyi={H\bibinitperiod},
+           given={Dominic},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {San Francisco, CA: Miller Freeman Publications, c1988-c2005.}%
+      }
+      \strng{namehash}{5af5dd2a38ada564bbe9f1cf1fd62d43}
+      \strng{fullhash}{5af5dd2a38ada564bbe9f1cf1fd62d43}
+      \strng{bibnamehash}{5af5dd2a38ada564bbe9f1cf1fd62d43}
+      \strng{authorbibnamehash}{5af5dd2a38ada564bbe9f1cf1fd62d43}
+      \strng{authornamehash}{5af5dd2a38ada564bbe9f1cf1fd62d43}
+      \strng{authorfullhash}{5af5dd2a38ada564bbe9f1cf1fd62d43}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Embedded Systems Programming}
+      \field{number}{2}
+      \field{title}{C++ in embedded systems: Myth and reality}
+      \field{volume}{11}
+      \field{year}{1998}
+      \field{pages}{48\bibrangedash 71}
+      \range{pages}{24}
+    \endentry
+    \entry{rotithor1999measurement}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5cf9e3928113837531caf987a8d8dac4}{%
+           family={Rotithor},
+           familyi={R\bibinitperiod},
+           given={H},
+           giveni={H\bibinitperiod}}}%
+        {{hash=097a574cdaf6ee6ad6c457f0f887ee48}{%
+           family={Harris},
+           familyi={H\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod}}}%
+        {{hash=d27993d3d39ca56a54118eba9bc5ab30}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{04613a7c93ee38c103a1465e4a0e6dd7}
+      \strng{fullhash}{04613a7c93ee38c103a1465e4a0e6dd7}
+      \strng{bibnamehash}{04613a7c93ee38c103a1465e4a0e6dd7}
+      \strng{authorbibnamehash}{04613a7c93ee38c103a1465e4a0e6dd7}
+      \strng{authornamehash}{04613a7c93ee38c103a1465e4a0e6dd7}
+      \strng{authorfullhash}{04613a7c93ee38c103a1465e4a0e6dd7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Digital Technical Journal}
+      \field{number}{1}
+      \field{title}{Measurement and Analysis of C and C++ Performance}
+      \field{volume}{10}
+      \field{year}{1999}
+      \field{pages}{32\bibrangedash 47}
+      \range{pages}{16}
+    \endentry
+    \entry{burnette2009hello}{book}{}
+      \name{author}{1}{}{%
+        {{hash=440538d118da88cc99088596a98969c0}{%
+           family={Burnette},
+           familyi={B\bibinitperiod},
+           given={Ed},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Android}%
+      }
+      \strng{namehash}{440538d118da88cc99088596a98969c0}
+      \strng{fullhash}{440538d118da88cc99088596a98969c0}
+      \strng{bibnamehash}{440538d118da88cc99088596a98969c0}
+      \strng{authorbibnamehash}{440538d118da88cc99088596a98969c0}
+      \strng{authornamehash}{440538d118da88cc99088596a98969c0}
+      \strng{authorfullhash}{440538d118da88cc99088596a98969c0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hello, Android introducing Google's mobile development platform: 2nd}
+      \field{year}{2009}
+    \endentry
+    \entry{lim2014distributed}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=042752f887a0606066bcaadf76b71979}{%
+           family={Lim},
+           familyi={L\bibinitperiod},
+           given={Geunsik},
+           giveni={G\bibinitperiod}}}%
+        {{hash=bff450ebd68aa9d233c17814c8db428d}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Minho},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cd010f4996e146e771f11803ac23d9e8}{%
+           family={Lahaye},
+           familyi={L\bibinitperiod},
+           given={Rob\bibnamedelima JWE},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=7edf703aea7b5eb115ad8804f8ac8128}{%
+           family={Eom},
+           familyi={E\bibinitperiod},
+           given={Young\bibnamedelima Ik},
+           giveni={Y\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{4a795cfb0b567f1a386f07002e8b0a0e}
+      \strng{fullhash}{90002d037a36837a15ae7976911f0ec6}
+      \strng{bibnamehash}{90002d037a36837a15ae7976911f0ec6}
+      \strng{authorbibnamehash}{90002d037a36837a15ae7976911f0ec6}
+      \strng{authornamehash}{4a795cfb0b567f1a386f07002e8b0a0e}
+      \strng{authorfullhash}{90002d037a36837a15ae7976911f0ec6}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2014 International Conference on Big Data and Smart Computing (BIGCOMP)}
+      \field{title}{Distributed compilation system for high-speed software build processes}
+      \field{year}{2014}
+      \field{pages}{116\bibrangedash 120}
+      \range{pages}{5}
+    \endentry
+    \entry{pool2003distcc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d4f688a896a1afe8e521270967ed539a}{%
+           family={Pool},
+           familyi={P\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {December}%
+      }
+      \strng{namehash}{d4f688a896a1afe8e521270967ed539a}
+      \strng{fullhash}{d4f688a896a1afe8e521270967ed539a}
+      \strng{bibnamehash}{d4f688a896a1afe8e521270967ed539a}
+      \strng{authorbibnamehash}{d4f688a896a1afe8e521270967ed539a}
+      \strng{authornamehash}{d4f688a896a1afe8e521270967ed539a}
+      \strng{authorfullhash}{d4f688a896a1afe8e521270967ed539a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{distcc, a fast free distributed compiler}
+      \field{year}{2003}
+    \endentry
+    \entry{tarreau2018lzo}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=82d59bd2f97fd7ca1e8cc7493f9114ea}{%
+           family={Tarreau},
+           familyi={T\bibinitperiod},
+           given={Willy},
+           giveni={W\bibinitperiod}}}%
+        {{hash=0b741af352df7e3c8cc57cddcdc6e4a3}{%
+           family={Rodgman},
+           familyi={R\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{060060fc2f84a5950febea5346f5f2e9}
+      \strng{fullhash}{060060fc2f84a5950febea5346f5f2e9}
+      \strng{bibnamehash}{060060fc2f84a5950febea5346f5f2e9}
+      \strng{authorbibnamehash}{060060fc2f84a5950febea5346f5f2e9}
+      \strng{authornamehash}{060060fc2f84a5950febea5346f5f2e9}
+      \strng{authorfullhash}{060060fc2f84a5950febea5346f5f2e9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LZO stream format as understood by Linux’s LZO decompressor}
+      \field{year}{2018}
+    \endentry
+    \entry{ashby2004parallel}{article}{}
+      \name{author}{4}{}{%
+        {{hash=654e1aa03ece5367aca272f5f065315c}{%
+           family={Ashby},
+           familyi={A\bibinitperiod},
+           given={Shaun},
+           giveni={S\bibinitperiod}}}%
+        {{hash=637a3842882e99998f265b2f0d29232f}{%
+           family={Eulisse},
+           familyi={E\bibinitperiod},
+           given={Giulio},
+           giveni={G\bibinitperiod}}}%
+        {{hash=58ef30159a40139f51c8605979d5ffb5}{%
+           family={Schmid},
+           familyi={S\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1974d4e8702ea3b2f457bd3734289572}{%
+           family={Tuura},
+           familyi={T\bibinitperiod},
+           given={Lassi},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{197e7c6c314f45fc8ed41bac97f17e59}
+      \strng{fullhash}{f666ec006e6fb03b1c2fc85a450f9290}
+      \strng{bibnamehash}{f666ec006e6fb03b1c2fc85a450f9290}
+      \strng{authorbibnamehash}{f666ec006e6fb03b1c2fc85a450f9290}
+      \strng{authornamehash}{197e7c6c314f45fc8ed41bac97f17e59}
+      \strng{authorfullhash}{f666ec006e6fb03b1c2fc85a450f9290}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Parallel compilation of cms software}
+      \field{year}{2004}
+    \endentry
+    \entry{matev2020fast}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=a2caa60fe4e5dcb742cbbc4efd13b1f2}{%
+           family={Matev},
+           familyi={M\bibinitperiod},
+           given={Rosen},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {EDP Sciences}%
+      }
+      \strng{namehash}{a2caa60fe4e5dcb742cbbc4efd13b1f2}
+      \strng{fullhash}{a2caa60fe4e5dcb742cbbc4efd13b1f2}
+      \strng{bibnamehash}{a2caa60fe4e5dcb742cbbc4efd13b1f2}
+      \strng{authorbibnamehash}{a2caa60fe4e5dcb742cbbc4efd13b1f2}
+      \strng{authornamehash}{a2caa60fe4e5dcb742cbbc4efd13b1f2}
+      \strng{authorfullhash}{a2caa60fe4e5dcb742cbbc4efd13b1f2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{EPJ Web of Conferences}
+      \field{title}{Fast distributed compilation and testing of large C++ projects}
+      \field{volume}{245}
+      \field{year}{2020}
+      \field{pages}{05001}
+      \range{pages}{1}
+    \endentry
+    \entry{ccache}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b1a64f67cd64be9e70362e1bbf489d02}{%
+           family={Rosdahl},
+           familyi={R\bibinitperiod},
+           given={Joel},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1a64f67cd64be9e70362e1bbf489d02}
+      \strng{fullhash}{b1a64f67cd64be9e70362e1bbf489d02}
+      \strng{bibnamehash}{b1a64f67cd64be9e70362e1bbf489d02}
+      \strng{authorbibnamehash}{b1a64f67cd64be9e70362e1bbf489d02}
+      \strng{authornamehash}{b1a64f67cd64be9e70362e1bbf489d02}
+      \strng{authorfullhash}{b1a64f67cd64be9e70362e1bbf489d02}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://ccache.dev/}}
+      \field{note}{Accessed: 2025-02-09}
+      \field{title}{ccache - A fast compiler cache}
+      \field{year}{2025}
+    \endentry
+    \entry{ccache_manual}{manual}{}
+      \name{author}{2}{}{%
+        {{hash=b1a64f67cd64be9e70362e1bbf489d02}{%
+           family={Rosdahl},
+           familyi={R\bibinitperiod},
+           given={Joel},
+           giveni={J\bibinitperiod}}}%
+        {{hash=96858cb143562346b7f065e32c403f30}{%
+           family={Contributors},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{7485b5fa07bebe3f7b89bdaf4431479c}
+      \strng{fullhash}{7485b5fa07bebe3f7b89bdaf4431479c}
+      \strng{bibnamehash}{7485b5fa07bebe3f7b89bdaf4431479c}
+      \strng{authorbibnamehash}{7485b5fa07bebe3f7b89bdaf4431479c}
+      \strng{authornamehash}{7485b5fa07bebe3f7b89bdaf4431479c}
+      \strng{authorfullhash}{7485b5fa07bebe3f7b89bdaf4431479c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://ccache.dev/manual/latest.html}}
+      \field{note}{Accessed: 2025-02-09}
+      \field{title}{ccache Manual: How ccache Works}
+      \field{year}{2025}
+    \endentry
+    \entry{sccache}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=502f1bd97b0e7d80b88e1f45ae1bfdb8}{%
+           family={Mozilla},
+           familyi={M\bibinitperiod}}}%
+        {{hash=96858cb143562346b7f065e32c403f30}{%
+           family={Contributors},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b5dc45895ee9e9bb566a39bf2f2166c}
+      \strng{fullhash}{2b5dc45895ee9e9bb566a39bf2f2166c}
+      \strng{bibnamehash}{2b5dc45895ee9e9bb566a39bf2f2166c}
+      \strng{authorbibnamehash}{2b5dc45895ee9e9bb566a39bf2f2166c}
+      \strng{authornamehash}{2b5dc45895ee9e9bb566a39bf2f2166c}
+      \strng{authorfullhash}{2b5dc45895ee9e9bb566a39bf2f2166c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/mozilla/sccache}}
+      \field{note}{Accessed: 2025-02-09}
+      \field{title}{sccache - Shared Compilation Cache}
+      \field{year}{2025}
+    \endentry
+    \entry{saario2020enabling}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a3c36e1ca13f953e1d915c223864e458}{%
+           family={Saario},
+           familyi={S\bibinitperiod},
+           given={Toni},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{a3c36e1ca13f953e1d915c223864e458}
+      \strng{fullhash}{a3c36e1ca13f953e1d915c223864e458}
+      \strng{bibnamehash}{a3c36e1ca13f953e1d915c223864e458}
+      \strng{authorbibnamehash}{a3c36e1ca13f953e1d915c223864e458}
+      \strng{authornamehash}{a3c36e1ca13f953e1d915c223864e458}
+      \strng{authorfullhash}{a3c36e1ca13f953e1d915c223864e458}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Enabling Sccache In CI System}
+      \field{year}{2020}
+    \endentry
+    \entry{jo2013disco}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d3827eaad82642fae7c1111e99809891}{%
+           family={Jo},
+           familyi={J\bibinitperiod},
+           given={Kyongjin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f9ed5c8f76a48b5e75e9533995326b96}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Seon\bibnamedelima Wook},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=e16c71629d1060ca6148ffc63db409dc}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Jong-Kook},
+           giveni={J\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {The Institute of Electronics, Information}%
+        {Communication Engineers}%
+      }
+      \strng{namehash}{7974472ef825ecf32f5d3419cc92f54e}
+      \strng{fullhash}{7974472ef825ecf32f5d3419cc92f54e}
+      \strng{bibnamehash}{7974472ef825ecf32f5d3419cc92f54e}
+      \strng{authorbibnamehash}{7974472ef825ecf32f5d3419cc92f54e}
+      \strng{authornamehash}{7974472ef825ecf32f5d3419cc92f54e}
+      \strng{authorfullhash}{7974472ef825ecf32f5d3419cc92f54e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEICE TRANSACTIONS on Information and Systems}
+      \field{number}{3}
+      \field{title}{DiSCo: Distributed scalable compilation tool for heavy compilation workload}
+      \field{volume}{96}
+      \field{year}{2013}
+      \field{pages}{589\bibrangedash 600}
+      \range{pages}{12}
+    \endentry
+    \entry{incredibuild}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73e74629c53ff8a932807d08a0500528}{%
+           family={Ltd.},
+           familyi={L\bibinitperiod},
+           given={Incredibuild},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{73e74629c53ff8a932807d08a0500528}
+      \strng{fullhash}{73e74629c53ff8a932807d08a0500528}
+      \strng{bibnamehash}{73e74629c53ff8a932807d08a0500528}
+      \strng{authorbibnamehash}{73e74629c53ff8a932807d08a0500528}
+      \strng{authornamehash}{73e74629c53ff8a932807d08a0500528}
+      \strng{authorfullhash}{73e74629c53ff8a932807d08a0500528}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.incredibuild.com/}}
+      \field{note}{Accessed: 2025-02-09}
+      \field{title}{Incredibuild - Accelerate Development with Build Distribution}
+      \field{year}{2025}
+    \endentry
+    \entry{mizuno2003synchronization}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=0050cae17219a0e1dc68d50656e1b47e}{%
+           family={Mizuno},
+           familyi={M\bibinitperiod},
+           given={Masaaki},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6b0c9e30dbd6fae9e71ab405b91ae7ff}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Liubo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=52a9fbdbe8a95c64d379b09aff6ded11}{%
+           family={Wallentine},
+           familyi={W\bibinitperiod},
+           given={Virgil},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{a858860f6b2d576c055a4b05a92b9700}
+      \strng{fullhash}{a858860f6b2d576c055a4b05a92b9700}
+      \strng{bibnamehash}{a858860f6b2d576c055a4b05a92b9700}
+      \strng{authorbibnamehash}{a858860f6b2d576c055a4b05a92b9700}
+      \strng{authornamehash}{a858860f6b2d576c055a4b05a92b9700}
+      \strng{authorfullhash}{a858860f6b2d576c055a4b05a92b9700}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{PDPTA}
+      \field{title}{Synchronization in a Thread-Pool Model and its Application in Parallel Computing.}
+      \field{year}{2003}
+      \field{pages}{1879\bibrangedash 1885}
+      \range{pages}{7}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

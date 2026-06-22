@@ -2,13 +2,36 @@
 
 \section{Conținut}
 
-\begin{itemize}
-    \item Descrierea detaliată a temei de cercetare propriu-zise, formulate exact, cu obiective clare pe 2-3 pagini și eventuale figuri explicative.
+Obiectivul principal al cercetării constă în utilizarea tehnologiilor
+moderne de comunicare din domeniul sistemelor distribuite pentru a
+implementa un nou sistem de compilare distribuită pentru proiecte C/C++, care
+să ofere performanțe competitive în ceea ce privește eficientizarea
+procesului de compilare, comparativ cu alternativele deja existente.
+Sistemul dezvoltat propune o abordare eficientă, scalabilă și flexibilă
+din punct de vedere arhitectural, de a crește viteza procesului de 
+compilare, fără a introduce incompatibilități cu uneltele deja folosite
+în dezvoltare proiectelor.
 
-    \item Titlul nu e neapărat impus și, de asemenea, capitolul poate fi inclus ca subcapitol în Capitolul~ %\ref{cap:Introducere}, dacă se potrivește.
+Compilarea proiectelor dezvoltate folosind C/C++ este compusă din etape
+multiple de transformare a codului sursă: preprocesarea, compilarea,
+generarea de cod mașină pentru platforma vizată și link-editarea. Unele 
+operațiuni aferente procesului de compilare pot fi executate independent,
+în paralel, însă gestiunea dependințelor dintre fișierele componente
+ale proiectului, artefactele generate și setările de configurare ale compilatorului 
+introduce un grad însemnat de complexitate. Un obiectiv ce trebuie 
+îndeplinit de către orice sistem distribuit de acest tip îl reprezintă
+identificarea corectă a sarcinilor care pot fi preluate de către sistemele
+de calcul auxiliare, spre a fi paralelizate, astfel încât să fie menținută
+corectitudinea și capacitatea de reproducere facilă a procesului de compilare.
 
-    \item Reprezintă cca. 5--10\% din lucrare.
-\end{itemize}
+Lucrarea investighează modul în care sarcinile de compilare pot să
+fie distribuite într-o manieră eficientă către mai multe noduri de calcul din
+rețea, pentru a se minimiza suprautilizarea resurselor de calcul, precum și a
+canalelor de comunicare. De asemenea, sistemul trebuie să țină în evidență
+dsiponibilitatea sistemelor ce contribuie la procesul de build și să își păstreze
+o stare de funcționare consistentă în cazul apariției erorilor în timpul 
+transmisiei de date în rețea.
+
 
 
 \section{Secțiune}

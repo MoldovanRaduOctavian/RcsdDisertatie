@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.21)  21 JUN 2026 20:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.21)  22 JUN 2026 22:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -121,6 +121,8 @@ Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count310
@@ -228,6 +230,14 @@ File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip20
 \c@smartand=\count386
 )
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+ (/usr/share/texlive/texmf-dist/tex/latex/biblatex-ieee/ieee.bbx
+File: ieee.bbx 2021/12/06 v1.3f biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+ (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
+File: numeric-comp.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
@@ -238,11 +248,19 @@ Package biblatex Info: ... file 'standard.bbx' found.
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count387
 \c@bbx:relatedtotal=\count388
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+ (/usr/share/texlive/texmf-dist/tex/latex/biblatex-ieee/ieee.cbx
+File: ieee.cbx 2021/12/06 v1.3f biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.cbx' found.
+ (/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+File: numeric-comp.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
+\c@cbx@tempcnta=\count389
+\c@cbx@tempcntb=\count390
+\c@cbx@tempcntc=\count391
+\c@cbx@tempcntd=\count392
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -255,6 +273,10 @@ Package biblatex Info: Redefining '\cites'.
 Package biblatex Info: Redefining '\parencites'.
 Package biblatex Info: Redefining '\smartcites'.
 )
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\cites'.
+)
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
@@ -266,7 +288,7 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2024-01-22 L3 programming layer (loader) 
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count389
+\l__color_backend_stack_int=\count393
 \l__pdf_internal_box=\box51
 ))
 Package biblatex Info: ... and expl3
@@ -280,12 +302,12 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 )) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (./cs.sty
-\hour=\count390
-\minute=\count391
-\dow=\count392
-\leap=\count393
-\x=\count394
-\y=\count395
+\hour=\count394
+\minute=\count395
+\dow=\count396
+\leap=\count397
+\x=\count398
+\y=\count399
 ) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -325,14 +347,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count396
+\inf@bad=\count400
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count397
-\leftroot@=\count398
+\uproot@=\count401
+\leftroot@=\count402
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count399
-\DOTSCASE@=\count400
+\classnum@=\count403
+\DOTSCASE@=\count404
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -345,20 +367,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen145
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count401
+\macc@depth=\count405
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count402
+\c@MaxMatrixCols=\count406
 \dotsspace@=\muskip21
-\c@parentequation=\count403
-\dspbrk@lvl=\count404
+\c@parentequation=\count407
+\dspbrk@lvl=\count408
 \tag@help=\toks19
-\row@=\count405
-\column@=\count406
-\maxfields@=\count407
+\row@=\count409
+\column@=\count410
+\maxfields@=\count411
 \andhelp@=\toks20
 \eqnshift@=\dimen146
 \alignsep@=\dimen147
@@ -418,14 +440,14 @@ Loading kernel: messages; fonts; allocations: state,
  direction,
 \d@X=\dimen175
 \d@Y=\dimen176
-\K@=\count408
-\KK@=\count409
-\Direction=\count410
+\K@=\count412
+\KK@=\count413
+\Direction=\count414
 \K@dXdY=\dimen177
 \K@dYdX=\dimen178
 \xyread@=\read3
 \xywrite@=\write4
-\csp@=\count411
+\csp@=\count415
 \quotPTK@=\dimen179
  utility macros; pictures: \xy, positions,
 \swaptoks@@=\toks25
@@ -437,13 +459,13 @@ Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 )
 Package: xy 2013/10/06 Xy-pic version 3.8.9
  (/usr/share/texlive/texmf-dist/tex/generic/xypic/xymatrix.tex  Xy-pic option: Matrix feature v.3.14
-\Row=\count412
-\Col=\count413
+\Row=\count416
+\Col=\count417
 \queue@=\toks27
 \queue@@=\toks28
-\qcount@=\count414
-\qcount@@=\count415
-\matrixsize@=\count416
+\qcount@=\count418
+\qcount@@=\count419
+\matrixsize@=\count420
  loaded) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyarrow.tex  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf.tex  Xy-pic option: PDF driver v.1.7 loaded)) (/usr/share/texlive/texmf-dist/tex/latex/ae/ae.sty
 Package: ae 2001/02/12 1.3 Almost European Computer Modern
  (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
@@ -457,20 +479,20 @@ Package: aecompl 1998/07/23 0.9 T1 Complements for AE fonts (D. Roegel)
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
  (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count417
+\c@float@type=\count421
 \float@exts=\toks29
 \float@box=\box57
 \@float@everytoks=\toks30
 \@floatcapt=\box58
 )
 \@float@every@algorithm=\toks31
-\c@algorithm=\count418
+\c@algorithm=\count422
 ) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count419
-\c@ALC@line=\count420
-\c@ALC@rem=\count421
-\c@ALC@depth=\count422
+\c@ALC@unique=\count423
+\c@ALC@line=\count424
+\c@ALC@rem=\count425
+\c@ALC@depth=\count426
 \ALC@tlm=\skip75
 \algorithmicindent=\skip76
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
@@ -480,22 +502,22 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count423
+\lst@mode=\count427
 \lst@gtempboxa=\box59
 \lst@token=\toks32
-\lst@length=\count424
+\lst@length=\count428
 \lst@currlwidth=\dimen180
-\lst@column=\count425
-\lst@pos=\count426
+\lst@column=\count429
+\lst@pos=\count430
 \lst@lostspace=\dimen181
 \lst@width=\dimen182
-\lst@newlines=\count427
-\lst@lineno=\count428
+\lst@newlines=\count431
+\lst@lineno=\count432
 \lst@maxwidth=\dimen183
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count429
-\lst@skipnumbers=\count430
+\c@lstnumber=\count433
+\lst@skipnumbers=\count434
 \lst@framebox=\box60
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -518,7 +540,7 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \TX@old@col=\dimen188
 \TX@target=\dimen189
 \TX@delta=\dimen190
-\TX@cols=\count431
+\TX@cols=\count435
 \TX@ftn=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -537,11 +559,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count432
+\c@section@level=\count436
 )
 \@linkdim=\dimen191
-\Hy@linkcounter=\count433
-\Hy@pagecounter=\count434
+\Hy@linkcounter=\count437
+\Hy@pagecounter=\count438
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -549,7 +571,7 @@ Now handling font encoding PD1 ...
 ) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count435
+\Hy@SavedSpaceFactor=\count439
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -562,7 +584,7 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count436
+\c@Hy@tempcnt=\count440
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen192
  (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
@@ -570,7 +592,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count437
+\Fld@menulength=\count441
 \Field@Width=\dimen193
 \Fld@charsize=\dimen194
 Package hyperref Info: Hyper figures OFF on input line 6063.
@@ -584,9 +606,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count438
-\c@Item=\count439
-\c@Hfootnote=\count440
+\Hy@abspage=\count442
+\c@Item=\count443
+\c@Hfootnote=\count444
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -595,8 +617,8 @@ File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count441
-\c@bookmark@seq@number=\count442
+\Fld@listcount=\count445
+\c@bookmark@seq@number=\count446
  (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -607,12 +629,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip79
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count443
+\babel@savecnt=\count447
 \U@D=\dimen195
 \l@unhyphenated=\language90
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read4
-\bbl@dirlevel=\count444
+\bbl@dirlevel=\count448
  (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -659,14 +681,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen263
 \w@pgf@writea=\write5
 \r@pgf@reada=\read5
-\c@pgf@counta=\count445
-\c@pgf@countb=\count446
-\c@pgf@countc=\count447
-\c@pgf@countd=\count448
+\c@pgf@counta=\count449
+\c@pgf@countb=\count450
+\c@pgf@countc=\count451
+\c@pgf@countd=\count452
 \t@pgf@toka=\toks39
 \t@pgf@tokb=\toks40
 \t@pgf@tokc=\toks41
-\pgf@sys@id@count=\count449
+\pgf@sys@id@count=\count453
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -677,8 +699,8 @@ File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count450
-\pgfsyssoftpath@bigbuffer@items=\count451
+\pgfsyssoftpath@smallbuffer@items=\count454
+\pgfsyssoftpath@bigbuffer@items=\count455
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -702,13 +724,13 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen264
-\pgfmath@count=\count452
+\pgfmath@count=\count456
 \pgfmath@box=\box64
 \pgfmath@toks=\toks42
 \pgfmath@stack@operand=\toks43
 \pgfmath@stack@operation=\toks44
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count453
+\c@pgfmathroundto@lastzeros=\count457
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen265
@@ -738,7 +760,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box65
 \pgf@hbox=\box66
 \pgf@layerbox@main=\box67
-\pgf@picture@serial@count=\count454
+\pgf@picture@serial@count=\count458
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen283
@@ -759,8 +781,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen288
-\pgf@sys@shading@range@num=\count455
-\pgf@shadingcount=\count456
+\pgf@sys@shading@range@num=\count459
+\pgf@shadingcount=\count460
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -776,23 +798,23 @@ File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count457
-\calc@Bcount=\count458
+\calc@Acount=\count461
+\calc@Bcount=\count462
 \calc@Adimen=\dimen289
 \calc@Bdimen=\dimen290
 \calc@Askip=\skip80
 \calc@Bskip=\skip81
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count459
+\calc@Ccount=\count463
 \calc@Cskip=\skip82
 )
-\pgf@logicalpages=\count460
-\pgf@firstshipout=\count461
-\pgf@lastshipout=\count462
-\pgf@currentshipout=\count463
-\pgf@cpn=\count464
-\pgf@shipoutnextto=\count465
+\pgf@logicalpages=\count464
+\pgf@firstshipout=\count465
+\pgf@lastshipout=\count466
+\pgf@currentshipout=\count467
+\pgf@cpn=\count468
+\pgf@shipoutnextto=\count469
 \pgfphysicalheight=\dimen291
 \pgfphysicalwidth=\dimen292
 \pgfpages@shipoutbox=\box69
@@ -817,29 +839,29 @@ Package biblatex Warning: Load 'inputenc' before biblatex.
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count466
-\@quotereset=\count467
+\@quotelevel=\count470
+\@quotereset=\count471
 (./thesis.aux (./ch1.aux) (./ch2.aux) (./ch3.aux) (./ch4.aux) (./ch5.aux) (./ch6.aux) (./apendix.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 Package biblatex Info: Trying to load language 'romanian'...
 Package biblatex Info: ... file 'romanian.lbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/romanian.lbx
@@ -858,20 +880,20 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 70.
-Package biblatex Info: Reference segment=0 on input line 70.
+Package biblatex Info: Reference section=0 on input line 69.
+Package biblatex Info: Reference segment=0 on input line 69.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count468
+\scratchcounter=\count472
 \scratchdimen=\dimen293
 \scratchbox=\box70
-\nofMPsegments=\count469
-\nofMParguments=\count470
+\nofMPsegments=\count473
+\nofMParguments=\count474
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count471
+\MPscratchCnt=\count475
 \MPscratchDim=\dimen294
-\MPnumerator=\count472
-\makeMPintoPDFobject=\count473
+\MPnumerator=\count476
+\makeMPintoPDFobject=\count477
 \everyMPtoPDFconversion=\toks48
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -885,32 +907,32 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 70.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 70.
-\c@lstlisting=\count474
-Package hyperref Info: Link coloring OFF on input line 70.
+Package xypdf Info: Line width: 0.47998pt on input line 69.
+\c@lstlisting=\count478
+Package hyperref Info: Link coloring OFF on input line 69.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write6
 \openout6 = `thesis.out'.
 
-<sigla.jpg, id=95, 2182.1525pt x 353.32pt>
+<sigla.jpg, id=86, 2182.1525pt x 353.32pt>
 File: sigla.jpg Graphic file (type jpg)
 <use sigla.jpg>
-Package pdftex.def Info: sigla.jpg  used on input line 75.
+Package pdftex.def Info: sigla.jpg  used on input line 74.
 (pdftex.def)             Requested size: 412.56496pt x 66.79724pt.
 
-Underfull \hbox (badness 10000) in alignment at lines 93--93
+Underfull \hbox (badness 10000) in alignment at lines 92--92
 [][] 
  []
 
@@ -920,29 +942,29 @@ Underfull \hbox (badness 10000) in alignment at lines 93--93
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104 \end{titlepage}
+l.103 \end{titlepage}
                       [1]
 File: sigla.jpg Graphic file (type jpg)
 <use sigla.jpg>
-Package pdftex.def Info: sigla.jpg  used on input line 110.
+Package pdftex.def Info: sigla.jpg  used on input line 109.
 (pdftex.def)             Requested size: 412.56496pt x 66.79724pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.167 \end{titlepage}
+l.166 \end{titlepage}
                       [1]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.172 \end{titlepage}
+l.171 \end{titlepage}
                       [1]
 File: sigla.jpg Graphic file (type jpg)
 <use sigla.jpg>
-Package pdftex.def Info: sigla.jpg  used on input line 178.
+Package pdftex.def Info: sigla.jpg  used on input line 177.
 (pdftex.def)             Requested size: 412.56496pt x 66.79724pt.
 
-Overfull \hbox (5.69055pt too wide) in paragraph at lines 214--220
+Overfull \hbox (5.69055pt too wide) in paragraph at lines 213--219
 [] [] 
  []
 
@@ -950,12 +972,12 @@ Overfull \hbox (5.69055pt too wide) in paragraph at lines 214--220
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.222 \end{titlepage}
+l.221 \end{titlepage}
                       [1]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.227 \end{titlepage}
+l.226 \end{titlepage}
                       [1] (./thesis.toc)
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
@@ -967,56 +989,110 @@ l.227 \end{titlepage}
 
  (./ch1.tex
 Capitolul 1.
-LaTeX Font Info:    Trying to load font information for TS1+aer on input line 11.
-LaTeX Font Info:    No file TS1aer.fd. on input line 11.
-
-LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 11.
-
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 
+l.45 
       [1
 
 
 
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<figures/image.png, id=162, 252.2223pt x 169.8345pt>
-File: figures/image.png Graphic file (type png)
-<use figures/image.png>
-Package pdftex.def Info: figures/image.png  used on input line 47.
-(pdftex.def)             Requested size: 252.22168pt x 169.83408pt.
- [2 <./figures/image.png>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 120.
-) [3]
+]
+<figures/preprocessing.jpg, id=155, 376.40625pt x 499.8675pt>
+File: figures/preprocessing.jpg Graphic file (type jpg)
+<use figures/preprocessing.jpg>
+Package pdftex.def Info: figures/preprocessing.jpg  used on input line 57.
+(pdftex.def)             Requested size: 367.22722pt x 275.4085pt.
+<figures/compilation.jpg, id=157, 376.40625pt x 367.3725pt>
+File: figures/compilation.jpg Graphic file (type jpg)
+<use figures/compilation.jpg>
+Package pdftex.def Info: figures/compilation.jpg  used on input line 69.
+(pdftex.def)             Requested size: 367.22722pt x 229.50633pt.
+ [2 <./figures/preprocessing.jpg>]
+<figures/linking.jpg, id=166, 376.40625pt x 222.8325pt>
+File: figures/linking.jpg Graphic file (type jpg)
+<use figures/linking.jpg>
+Package pdftex.def Info: figures/linking.jpg  used on input line 82.
+(pdftex.def)             Requested size: 367.22722pt x 252.45401pt.
+ [3 <./figures/compilation.jpg> <./figures/linking.jpg>]
+<figures/locs.jpg, id=180, 412.54124pt x 203.25937pt>
+File: figures/locs.jpg Graphic file (type jpg)
+<use figures/locs.jpg>
+Package pdftex.def Info: figures/locs.jpg  used on input line 112.
+(pdftex.def)             Requested size: 298.3514pt x 123.9322pt.
+ [4 <./figures/locs.jpg>]
+<figures/android.jpg, id=194, 408.77719pt x 182.93344pt>
+File: figures/android.jpg Graphic file (type jpg)
+<use figures/android.jpg>
+Package pdftex.def Info: figures/android.jpg  used on input line 124.
+(pdftex.def)             Requested size: 298.36119pt x 146.89125pt.
+) [5 <./figures/android.jpg>]
 \openout2 = `ch2.aux'.
 
  (./ch2.tex
 Capitolul 2.
-) [4
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6
 
 
 
 
-]
+] [7]
 \openout2 = `ch3.aux'.
 
  (./ch3.tex
 Capitolul 3.
-) [5
+[8
 
 
 
 
 ]
+<figures/amdahl.jpg, id=219, 203.25937pt x 48.18pt>
+File: figures/amdahl.jpg Graphic file (type jpg)
+<use figures/amdahl.jpg>
+Package pdftex.def Info: figures/amdahl.jpg  used on input line 67.
+(pdftex.def)             Requested size: 197.37224pt x 78.02907pt.
+<figures/distcc.jpg, id=222, 403.5075pt x 137.7647pt>
+File: figures/distcc.jpg Graphic file (type jpg)
+<use figures/distcc.jpg>
+Package pdftex.def Info: figures/distcc.jpg  used on input line 79.
+(pdftex.def)             Requested size: 289.17679pt x 169.84474pt.
+ [9 <./figures/amdahl.jpg>] [10 <./figures/distcc.jpg>]
+<figures/ccache_direct.jpg, id=241, 399.74344pt x 94.10156pt>
+File: figures/ccache_direct.jpg Graphic file (type jpg)
+<use figures/ccache_direct.jpg>
+Package pdftex.def Info: figures/ccache_direct.jpg  used on input line 119.
+(pdftex.def)             Requested size: 289.18745pt x 123.9416pt.
+<figures/ccache_pre.jpg, id=243, 379.4175pt x 114.4275pt>
+File: figures/ccache_pre.jpg Graphic file (type jpg)
+<use figures/ccache_pre.jpg>
+Package pdftex.def Info: figures/ccache_pre.jpg  used on input line 135.
+(pdftex.def)             Requested size: 289.1766pt x 146.88922pt.
+ [11 <./figures/ccache_direct.jpg> <./figures/ccache_pre.jpg>]
+LaTeX Font Info:    Trying to load font information for TS1+aer on input line 180.
+LaTeX Font Info:    No file TS1aer.fd. on input line 180.
+
+
+LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textbullet' on input line 180.
+
+[12{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<figures/disco.jpg, id=269, 514.17094pt x 247.67531pt>
+File: figures/disco.jpg Graphic file (type jpg)
+<use figures/disco.jpg>
+Package pdftex.def Info: figures/disco.jpg  used on input line 199.
+(pdftex.def)             Requested size: 380.97482pt x 229.50044pt.
+) [13 <./figures/disco.jpg>]
 \openout2 = `ch4.aux'.
 
  (./ch4.tex
 Capitolul 4.
-) [6
+) [14
 
 
 
@@ -1031,7 +1107,7 @@ Overfull \hbox (12.95917pt too wide) in paragraph at lines 7--8
 \T1/aer/m/n/12 pro-puse în par-tea an-te-ri-oar , sce-na-ri-ile de tes-tare a co-rec-ti-tu-di-nii func[]ionale, a utilizabilit []ii,
  []
 
-) [7
+) [15
 
 
 
@@ -1041,40 +1117,30 @@ Overfull \hbox (12.95917pt too wide) in paragraph at lines 7--8
 
  (./ch6.tex
 Capitolul 6.
-) [8
+) [16
 
 
 
 
 ]
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 269.
+ (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) [17
+
+
+
+] [18]
 \openout2 = `apendix.aux'.
 
  (./apendix.tex
 Anexa A.
-[9
-
-
-
-
-]
-Anexa B.
-[10
-
-]
-Anexa C.
-LaTeX Font Info:    Trying to load font information for T1+aett on input line 33.
-(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)
 
 LaTeX Font Warning: Font shape `T1/aett/b/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 42.
+(Font)              using `T1/aett/m/n' instead on input line 36.
 
-[11
+) [19
 
-]
-Anexa D.
-) [12
 
 ] (./thesis.aux (./ch1.aux) (./ch2.aux) (./ch3.aux) (./ch4.aux) (./ch5.aux) (./ch6.aux) (./apendix.aux))
  ***********
@@ -1086,24 +1152,24 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: AC598D2E2BCF79A91607F55546142337;4010.
+(rerunfilecheck)             Checksum: 2A0FCC50E690DD4BDF8235A84A667820;3196.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29662 strings out of 474222
- 523415 string characters out of 5748733
+ 30065 strings out of 474222
+ 534423 string characters out of 5748733
  1945975 words of memory out of 5000000
- 51261 multiletter control sequences out of 15000+600000
- 615865 words of font info for 166 fonts, out of 8000000 for 9000
+ 51645 multiletter control sequences out of 15000+600000
+ 612178 words of font info for 162 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 81i,14n,81p,1195b,1809s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (19 pages, 342743 bytes).
+ 81i,14n,81p,1195b,1807s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on thesis.pdf (26 pages, 503516 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 82 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 330 compressed objects within 4 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 228 words of extra memory for PDF output out of 10000 (max. 10000000)
 
