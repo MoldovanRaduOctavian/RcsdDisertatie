@@ -532,6 +532,8 @@ OUTPUT ch2.aux
 INPUT ./ch2.tex
 INPUT ./ch2.tex
 INPUT ch2.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
+INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT ./ch3.tex
 INPUT ./ch3.tex
 OUTPUT ch3.aux
@@ -558,8 +560,6 @@ INPUT ./figures/ccache_pre.jpg
 INPUT ./figures/ccache_pre.jpg
 INPUT ./figures/ccache_pre.jpg
 INPUT ./figures/ccache_pre.jpg
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
-INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT ./figures/disco.jpg
 INPUT ./figures/disco.jpg
 INPUT ./figures/disco.jpg

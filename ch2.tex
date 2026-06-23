@@ -1,10 +1,8 @@
 \chapter{Obiectivele cercetării}
 
-\section{Conținut}
-
-Obiectivul principal al cercetării constă în utilizarea tehnologiilor
-moderne de comunicare din domeniul sistemelor distribuite pentru a
-implementa un nou sistem de compilare distribuită pentru proiecte C/C++, care
+Obiectivul principal al cercetării constă în evaularea tehnologiilor
+moderne de comunicare din domeniul sistemelor distribuite, în scopul
+implementării unui nou sistem de compilare distribuită pentru proiecte C/C++, care
 să ofere performanțe competitive în ceea ce privește eficientizarea
 procesului de compilare, comparativ cu alternativele deja existente.
 Sistemul dezvoltat propune o abordare eficientă, scalabilă și flexibilă
@@ -27,18 +25,91 @@ corectitudinea și capacitatea de reproducere facilă a procesului de compilare.
 Lucrarea investighează modul în care sarcinile de compilare pot să
 fie distribuite într-o manieră eficientă către mai multe noduri de calcul din
 rețea, pentru a se minimiza suprautilizarea resurselor de calcul, precum și a
-canalelor de comunicare. De asemenea, sistemul trebuie să țină în evidență
-dsiponibilitatea sistemelor ce contribuie la procesul de build și să își păstreze
+canalelor de comunicare. De asemenea, sistemul trebuie să păstreze în evidență
+dsiponibilitatea sistemelor ce contribuie la procesul de build și să își mențină
 o stare de funcționare consistentă în cazul apariției erorilor în timpul 
 transmisiei de date în rețea.
 
+Astfel, metodologia de întocmire a lucrării de cercetare propune realizarea
+unei serii de mai multe activități, pentru a explora modul de funcționare și
+utilitatea conceptului de compilare distribuită pentru proiectede dezvoltate
+folosind limbajele de programare \textbf{C} și \textbf{C++}:
 
+\newpage
 
-\section{Secțiune}
+\begin{itemize}
+    \item Studiul bibliografic - în vederea dezvoltării unui sistem de compilare
+    distribuită, este necesară o analiză aprofundată a soluțiilor deja existente
+    pentru realizarea acestui tip de sarcină. Studiul bibliografic oferă o 
+    imagine de ansamblu a principiilor ce stau la baza compilării
+    distribuite, a implicațiilor practice ale aplicării unei astfel de abordări,
+    precum și a cazurilor de utilizare cele mai frecvente pentru astfel de sisteme
+    \item Proiectarea arhitecturii sistemului - aceasta reprezintă o etapă premergătoare
+    implementării concrete și cuprinde descrierea comportamentului pentru modulele
+    care intră în componența sistemului, cu modalitățile de funcționare și interacțiune
+    aferente. De asemenea, se studiază posibilitatea aplicării unor concepte moderne
+    pentru dezvoltarea sistemelor distribuite și se definește structura arhitecturii
+    hardware și software a ansamblului
+    \item Implementarea sistemului - pe baza arhitecturii definite în etapa anterioară,
+    se implementeză soluții practice pentru îndeplinirea operațiunilor asociate funcționării
+    sistemului de compilare distribuită: prelucrarea datelor de intrare, balansarea sarcinii
+    de compilare între nodurile participante, stocarea artefactelor rezultate, gestiunea
+    comunicării dintre noduri pe baza unui protocol predefinit
+    \item Crearea unui mediu de test - validarea funcționării corecte a sistemului
+    dezvoltate poate avea loc doar în contextul utilizării unei configurații
+    corespunzătoare, care să fie cât mai apropiată de condițiile de operare reale, în
+    ceea ce privește dispozitivele hardware implicate, atât din punct de vedere al puterii
+    de calcul, dar și al resurselor de rețea
+    \item Analiza rezultatelor obținute - pe baza metricilor ce caracterizează 
+    performanțele și comportamentul sistemului se pot identifica principalele avantaje și 
+    dezavantaje ale abordării alese, raportate la celelalte alternative propuse în 
+    literatura de specialitate, dar și scenariile optime de utilizare pentru distribuirea 
+    procesului de compilare folosind mai multe sisteme de calcul 
+\end{itemize}
 
+Pentru a restrânge aria de cercetare asupra conceptului de compilare distribuită
+pentru \textbf{C/C++}, nu se vor studia amănunțit toate aspectele adiacente funcționării
+unui astfel de sistem, precum testarea mai multor configurații de rețea, asigurarea 
+funcționării compatibilității aplicației cu platform de rulare multiple sau optimizarea
+procesului de deployment.
 
-\subsection{Subsecțiune}
+Se urmărește dezvoltarea unui sistem distribuit care să fie compatibil cu sistemele de operare
+bazate pe \textbf{Linux} și uneltele software uzuale în dezvoltarea aplicațiilor C/C++, dintre
+care amintim: compilatoarele GCC și Clang, respectiv sistemele de build CMake, Ninja și GNU Make.
+Astfel, ne limităm doar la asigurarea interacțiunii facile a sistemului cu  cele mai cunoscute
+medii de dezvoltare moderne.
 
+De asemenea, funcționarea sistemul distribuit presupune apartenența sistemelor de calcul
+participante la o rețea de calculatoare locală LAN. Scenariul funcționării într-o rețea
+de noduri distribuite asupra unei arii geografice însemnate implică necesitatea implementării
+unor măsuri de securitate suplimentare pentru păstrarea integrității și confidențialității
+datelor transferate, iar această activitate depășește sfera de cercetare a lucrării.
 
+Totodată, o altă precondiție care este impusă pentru funcționarea o constituie uniformitatea
+mediului de rulare pentru nodurile participante, având la bază presupunerea că sistemele de calcul
+implicate sunt dotate cu aceeași versiune de sistem de operare, sisteme de build și compilatoare, 
+iar arhitecturile hardware ale acestora sunt identice. Nu se studiază metode de partiționare 
+ale colecției de noduri de calcul pe baza compatibilității dintre platformele de rulare ale acestora.
 
+După implementarea sistemului de compilare distribuită, un alt obiectiv important al lucrării îl constituie
+evaluarea procesului de utilizare a sistemului, având în vedere analiza următoarelor aspecte cheie:
 
+\begin{itemize}
+    \item Durata de build - se măsoară timpul de compilare pentru mai multe proiecte open-source arhicunoscute,
+    atât folosind un unic nod de compilare, pentru a se determina măsura în care utilizarea sistemului
+    introduce overhead, raportat la durata de compilare locală pe nodul respectiv, precum și folosind
+    multiple noduri care contribuie la procesul de compilare, pentru a măsura, în mod evident, îmbunătățirile
+    aduse la eficientizarea procesului de build
+    \item Comportamenul determinist - în mod ideal, comportamnetul procesului de build, folosind sistemul
+    dezvoltat, trebuie să fie același la fiecare rulare, iar erorile sau warning-urile generate de către
+    compilator trebuie să fie cât mai apropiate de cele rezultate în urma procesului de compilare locală
+    \item Randamentul paralelizării - în funcție de natura proiectului care este supus procesului de compilare,
+    sistemul de compilare distribuită aduce grade diferite de îmbunătățire a timpilor de build. În scenariul ideal,
+    structura proiectului permite o micșorare a timpului de compilare direct proporțională cu numărul de sarcini de
+    compilare paralelă oferite de totalitatea nodurilor participante, însă în realitate, unele proiecte nu se bucură
+    de îmbunătățiri semnificative folosind o astfel de abordare
+    \item Volumul de date transferat - distribuirea procesului de compilare către mai multe sisteme de calcul poate
+    să implice transferul unor volume de date semnificative, în rețea, ceea ce introduce necesitatea accesului la 
+    resurse de rețea adecvate, pentru a nu deteriora eficiența procesului de build din cauza carențelor date de 
+    capacitatea de transfer dintr-o perioadă de timp sau latența de inițiere a transferului
+\end{itemize}
