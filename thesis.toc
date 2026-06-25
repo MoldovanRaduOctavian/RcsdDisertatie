@@ -7,12 +7,14 @@
 \contentsline {section}{\numberline {3.3}Sccache}{13}{section.3.3}%
 \contentsline {section}{\numberline {3.4}DiSCo}{13}{section.3.4}%
 \contentsline {chapter}{Capitolul{} \numberline {4}Prezentarea proiectului}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Precizări asupra conținutului și a modului de organizare}{15}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Subsecțiune}{15}{subsection.4.1.1}%
-\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{16}{chapter.5}%
-\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{17}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conținut}{17}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{17}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{17}{subsection.6.2.1}%
-\contentsline {chapter}{Bibliography}{18}{subsection.6.2.1}%
-\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{20}{appendix.A}%
+\contentsline {section}{\numberline {4.1}Fundamentare teoretică}{15}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Sisteme distribuite}{15}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Mecanisme de concurență și paralelism}{17}{subsection.4.1.2}%
+\contentsline {subsubsection}{Thread-uri}{18}{section*.2}%
+\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{20}{chapter.5}%
+\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conținut}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{21}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{21}{subsection.6.2.1}%
+\contentsline {chapter}{Bibliography}{22}{subsection.6.2.1}%
+\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{24}{appendix.A}%

@@ -571,6 +571,16 @@ OUTPUT ch4.aux
 INPUT ./ch4.tex
 INPUT ./ch4.tex
 INPUT ch4.tex
+INPUT ./figures/distributed_system_bus.jpg
+INPUT ./figures/distributed_system_bus.jpg
+INPUT ./figures/distributed_system_bus.jpg
+INPUT ./figures/distributed_system_bus.jpg
+INPUT ./figures/distributed_system_bus.jpg
+INPUT ./figures/concurrent_parallel.jpg
+INPUT ./figures/concurrent_parallel.jpg
+INPUT ./figures/concurrent_parallel.jpg
+INPUT ./figures/concurrent_parallel.jpg
+INPUT ./figures/concurrent_parallel.jpg
 INPUT ./ch5.tex
 INPUT ./ch5.tex
 OUTPUT ch5.aux

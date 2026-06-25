@@ -584,6 +584,170 @@
       \field{pages}{1879\bibrangedash 1885}
       \range{pages}{7}
     \endentry
+    \entry{buyya1999high}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=029e03ba4e08a5605b31a31f86375741}{%
+           family={Buyya},
+           familyi={B\bibinitperiod},
+           given={Rajkumar},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{72ad1e8af9140101e7db77764a1b7c8a}
+      \strng{fullhash}{72ad1e8af9140101e7db77764a1b7c8a}
+      \strng{bibnamehash}{72ad1e8af9140101e7db77764a1b7c8a}
+      \strng{authorbibnamehash}{72ad1e8af9140101e7db77764a1b7c8a}
+      \strng{authornamehash}{72ad1e8af9140101e7db77764a1b7c8a}
+      \strng{authorfullhash}{72ad1e8af9140101e7db77764a1b7c8a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Prentice Hall, Upper SaddleRiver, NJ, USA}
+      \field{number}{999}
+      \field{title}{High performance cluster computing: Architectures and systems (volume 1)}
+      \field{volume}{1}
+      \field{year}{1999}
+      \field{pages}{29}
+      \range{pages}{1}
+    \endentry
+    \entry{van2002distributed}{article}{}
+      \name{author}{1}{}{%
+        {{hash=63fcd374584d66d99158dfd680f50f2e}{%
+           family={Van\bibnamedelima Steen},
+           familyi={V\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Maarten},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{63fcd374584d66d99158dfd680f50f2e}
+      \strng{fullhash}{63fcd374584d66d99158dfd680f50f2e}
+      \strng{bibnamehash}{63fcd374584d66d99158dfd680f50f2e}
+      \strng{authorbibnamehash}{63fcd374584d66d99158dfd680f50f2e}
+      \strng{authornamehash}{63fcd374584d66d99158dfd680f50f2e}
+      \strng{authorfullhash}{63fcd374584d66d99158dfd680f50f2e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Network}
+      \field{number}{28}
+      \field{title}{Distributed systems principles and paradigms}
+      \field{volume}{2}
+      \field{year}{2002}
+      \field{pages}{1}
+      \range{pages}{1}
+    \endentry
+    \entry{reguera2025asynchronous}{book}{}
+      \name{author}{2}{}{%
+        {{hash=2cae28bad413cf06372dcacc25286c51}{%
+           family={Reguera-Salgado},
+           familyi={R\bibinithyphendelim S\bibinitperiod},
+           given={Javier},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cae9aeb48a915d7c43ee42ee73dea9ac}{%
+           family={Rufes},
+           familyi={R\bibinitperiod},
+           given={Juan\bibnamedelima Antonio},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Packt Publishing Ltd}%
+      }
+      \strng{namehash}{5d001bd33e3a374b96d8b748cf5affaa}
+      \strng{fullhash}{5d001bd33e3a374b96d8b748cf5affaa}
+      \strng{bibnamehash}{5d001bd33e3a374b96d8b748cf5affaa}
+      \strng{authorbibnamehash}{5d001bd33e3a374b96d8b748cf5affaa}
+      \strng{authornamehash}{5d001bd33e3a374b96d8b748cf5affaa}
+      \strng{authorfullhash}{5d001bd33e3a374b96d8b748cf5affaa}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asynchronous Programming with C++: Build blazing-fast software with multithreading and asynchronous programming for ultimate efficiency}
+      \field{year}{2025}
+    \endentry
+    \entry{Kizilarslan2024ParallelProgramming}{online}{}
+      \name{author}{1}{}{%
+        {{hash=c567a8404c429705ff3c21164b83874d}{%
+           family={Kızılarslan},
+           familyi={K\bibinitperiod},
+           given={Recep},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c567a8404c429705ff3c21164b83874d}
+      \strng{fullhash}{c567a8404c429705ff3c21164b83874d}
+      \strng{bibnamehash}{c567a8404c429705ff3c21164b83874d}
+      \strng{authorbibnamehash}{c567a8404c429705ff3c21164b83874d}
+      \strng{authornamehash}{c567a8404c429705ff3c21164b83874d}
+      \strng{authorfullhash}{c567a8404c429705ff3c21164b83874d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Parallel Programming with Modern Operating Systems I: Introduction Modern OS and Processors}
+      \field{urlday}{25}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://medium.com/@recepkzilarslan/parallel-programming-with-modern-operating-systems-i-introduction-modern-os-and-processors-58582d77567e
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@recepkzilarslan/parallel-programming-with-modern-operating-systems-i-introduction-modern-os-and-processors-58582d77567e
+      \endverb
+    \endentry
+    \entry{nenovasynchronous}{article}{}
+      \name{author}{2}{}{%
+        {{hash=15c83ef9bfb7accc66452847e90d2ca5}{%
+           family={Nenov},
+           familyi={N\bibinitperiod},
+           given={Hristo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=68789a90d8009044e6d20346d5dba80b}{%
+           family={Todorov},
+           familyi={T\bibinitperiod},
+           given={Sevdalin},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f931abcffaea90b1d85a16cd813e9eb}
+      \strng{fullhash}{2f931abcffaea90b1d85a16cd813e9eb}
+      \strng{bibnamehash}{2f931abcffaea90b1d85a16cd813e9eb}
+      \strng{authorbibnamehash}{2f931abcffaea90b1d85a16cd813e9eb}
+      \strng{authornamehash}{2f931abcffaea90b1d85a16cd813e9eb}
+      \strng{authorfullhash}{2f931abcffaea90b1d85a16cd813e9eb}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asynchronous non-blocking IO model approach to avoid the problem C10K in web servers for static content}
+    \endentry
+    \entry{williams2019c++}{book}{}
+      \name{author}{1}{}{%
+        {{hash=497c5804c01683eb601dd96d50e19909}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Simon}%
+        {Schuster}%
+      }
+      \strng{namehash}{497c5804c01683eb601dd96d50e19909}
+      \strng{fullhash}{497c5804c01683eb601dd96d50e19909}
+      \strng{bibnamehash}{497c5804c01683eb601dd96d50e19909}
+      \strng{authorbibnamehash}{497c5804c01683eb601dd96d50e19909}
+      \strng{authornamehash}{497c5804c01683eb601dd96d50e19909}
+      \strng{authorfullhash}{497c5804c01683eb601dd96d50e19909}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{C++ concurrency in action}
+      \field{year}{2019}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

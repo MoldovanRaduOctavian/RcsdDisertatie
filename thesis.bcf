@@ -2397,6 +2397,16 @@
     <bcf:citekey order="30" intorder="1">incredibuild</bcf:citekey>
     <bcf:citekey order="31" intorder="1">mizuno2003synchronization</bcf:citekey>
     <bcf:citekey order="32" intorder="1">jo2013disco</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">buyya1999high</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">buyya1999high</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">van2002distributed</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">van2002distributed</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">reguera2025asynchronous</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">Kizilarslan2024ParallelProgramming</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">nenovasynchronous</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">reguera2025asynchronous</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">reguera2025asynchronous</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">williams2019c++</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
