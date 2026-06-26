@@ -142,4 +142,198 @@ spațiului de memorie partajat. De asemenea, împărțirea spațiului de memorie
 unor mecanisme de sincronizare între firele de execuție (semafoare, excludere mutuală), pentru a împiedica coruperea datelor,
 datorată manipulării simultane a resurselor partajate, de către mai multe thread-uri care rulează în paralel. 
 
+Așadar printre cele mai utilizate mecanisme de sincronizare\cite{reguera2025asynchronous} pentru a asigura accesul sigur la resursele partajate,
+în contextul rulării în paralel a mai multor fire de execuție, le regăsim pe următoarele:
+
+\begin{itemize}
+    \item Mutex - se utilizează pentru a asigura accesul exclusiv al unui singur thread la o porțiune critică din codul aplicației
+    prin blocarea mutex-ului de către thread-ul care pătrunde în secțiunea critică. Celelalte thread-uri care urmează să execute codul
+    din secțiunea protejată, trebuie să aștepte până când primul thread deblochează accesul la mutex
+    \item Semafor - reprezintă o generalizare a conceptului de mutex, căci semaforul gestionează un contor numeric atomic, care descrie câte
+    thread-uri se pot afla în regiunea de cod critică în mod simultan. Fiecare thread interacționează cu semaforul prin incrementarea sau
+    decrementarea contorului acestuia, pentru a semnaliza celelalte thread-uri în legătură cu modificarea unei stări sau să aștepte ca alte
+    thread-uri să părăsească regiunea critică. Folosind semafoare, se poate permite ca mai multe thread-uri să ruleze simultan cod din regiunea 
+    critică, până la un număr maxim de thread-uri
+    \item Variabila condițională - mecanism de semnalizare între thread-uri care poate determina anumite fire de execuție să își suspende activitatea
+    până la îndeplinirea unei condiții logice complexe. Thread-urile active pot să trimită semnale către variabila condițională, pentru a comunica
+    thread-urilor care așteaptă, să își reia execuția
+\end{itemize}
+
+În cazul utilizării greșite a mecanismelor de sincronizare prezentate anterior, rularea mai multor fire de execuție în paralel
+determină apariția unor situații care deteriorează performanța aplicației și corectitudinea rezultatelor furnizate, posibil
+în mod nedeterminist:
+
+\begin{itemize}
+    \item Deadlock - situație care apare când două sau mai multe thread-uri aflate în execuțtie se interblochează reciproc, întrucât fiecare
+    dintre thread-urile în cauză reușește să obțină acces exclusiv la o resursă necesară pentru execuția unui alt thread, însă la rândul său, 
+    așteaptă ca accesul exclusiv la o resursă să fie eliberată. Această situație duce deobicei la blocarea pentru o perioadă nedeterminată de
+    timp a thread-urilor aplicației
+    \item Livelock - mai multe thread-uri rămân active pentru un timp nedeterminat, fără posibilitate de progres, întrucât încearcă fără succes
+    să obțină acces la resurse
+    \item Înfometare (starvation) - situație în care anumite thread-uri nu pot să își continue execuția, deoarece restul thread-urilor
+    rulează în permanență și nu cedează accesul la resursele partajate după care așteaptă thread-urile înfometate
+    \item Race condition - mai multe thread-uri accesează și încearcă să modifice starea unor resurse partajate în mod simultan, ceea ce generează
+    stări impredictibile și eronate ale resurselor ce au fost modificate concurent
+\end{itemize}
+
+Un alt aspect care merită menționat referitor la modul de funcționarea al thread-urilor, care este luat în considerare
+și în proiectarea sistemului de compilare distribuită, îl consitituie faptul că, operațiunea de creare și distrugere repetată
+a unui număr mare de thread-uri, de fiecare dată când o sarcină trebuie soluționată concurent, duce la pierderi semnificative
+de performanță la rulare. Aceste pierderi de performanță se datorează apariției foarte frecvente a evenimentelor de comutare de
+context între threaduri și a faptului că un număr excesiv de thread-uri concurează să obțină acces asupra resurselor partajate.
+
+Pentru a mitiga dezavantajele generate de crearea unui thread nou pentru fiecare cerere ce trebuie soluționată, se poate 
+folosi metoda \textbf{"Eager Spawning"}\cite{schmidt2001c++}, care presupune inițializarea unui număr predefinit de thread-uri
+la momentul pornirii aplicației. Aceste thread-uri sunt adăugate la o colecție, numită \textbf{"thread pool"}, responsabilă 
+să preia execuția cererilor generate de utilizatori, fără a se aștepta după inițializare de thread-uri noi sau după comutări de
+context. Pool-ul de thread-uri poate să fie de dimensiune fixă sau redimensionat în mod dinamic în timpul rulării, pe baza numărului 
+total de cereri în așteptare sau a capabilităților hardware ale sistemului de calcul care rulează aplicația.
+
+Thread-urile care fac parte din colecție așteaptă inactive în perioadele în care nu există sarcini de soluționat, pentru a nu 
+irosi resurse. În momentul în care este înregistrată o sarcină nouă, unul dintre thread-urile inactive este desemnat pentru a 
+realiza execuția, iar în situația în care toate thread-urile din pool sunt deja ocupate, atunci sarcina este nevoită să aștepte
+până la eliberarea unui thread.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, height=0.4\linewidth]{figures/thread_pool.jpg}
+    \caption{Concurență vs. paralelism \cite{schmidt2001c++}}
+    \label{fig:thread_pool}
+\end{figure}
+
+
+\subsubsection{Corutine}
+
+Rularea unei funcții obișnuite presupune excuția codului asociat de la începutul 
+porțiunii de cod asociate, iar ieșirea din corpul funcției are loc o singură dată, moment în care 
+apelul funcției este finalizat. O funcție nu stochează informații persistente de stare pentru rulare,
+motiv pentru care fiecare apel al funcției începe de la începutul blocului de cod asociat.
+
+Corutinele\cite{diehl2023shared} reprezintă funcții care își pot sista temporar execuția când ajung la 
+locații specifice din cod, iar execuția poate fi reluată ulterior de la locațiile în
+care a avut loc întreruperea. Pe durata întreruperii execuției, implementarea salvează
+informații de stare ale funcției înainte de suspendare, precum conținutul regiștrilor și 
+valorile variabilelor locale de pe stivă. Capacitatea de a opri și a relua execuția înainte
+de finalizarea apelului oferă numeroase avantaje practice: spre exemplu, o corutină care trebuie
+să aștepte finalizarea unui apel blocant pentru a progresa poate să își suspende execuția
+pentru a permite altor funcții să ruleze, fără a blocal firul principal de execuție al aplicației.
+Astfel, corutinele reprezintă un mecanism util pentru a asigura concurența aplicației, folosind un număr
+restrâns de thread-uri sau chiar un unic thread, care permite corutinelor să ruleze cod în mod cooperativ,
+prin suspendarea și reluarea execuției la momentul în care toate resursele devin accesibile.
+
+În funcție de maniera de implementare a conceptului de "corutină", corutinele se împart în corutine cu stivă
+proprie sau fără stivă ("stackless"). Pentru o corutină cu stivă proprie, toate variabilele locale pot să fie 
+stocate persistent fără ca cel ce apelează corutina să aibă acces la valori. Pentru corutinele fără stivă,
+toate valorile de pe stiva funcției sunt eliberate, ca pentru o finalizare obișnuită a unui apel
+de funcție, iar informațiile legate de starea de execuție a corutinei trebuie copiate într-o zonă de memorie
+auxiliară până la reluarea execuției. Corutinele fără stivă prezintă avantajul că salvarea stării
+la momentul suspendării nu este obligatorie, ceea ce evită execuția suplimentară a a procesului
+de copiere a datelor de stare, însă nu mai este permisă suspendarea execuției corutinei în orice locație 
+a blocului de cod asociat.
+
+Spre exemplu, standardul \textbf{C++ 20} implementează corutinele fără stivă proprie\cite{belson2020c++}, iar starea de execuție,
+variabilele locale și parametrii sunt stocate într-un Coroutine Stack Frame, care se alocă în mod dinamic pe
+heap. Figura \ref{fig:coroutine_stack_frame} ilustrează informațiile care sunt reținute la momentul suspendării execuției.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, height=0.3\linewidth]{figures/coroutine_stack_frame.jpg}
+    \caption{Coroutine stack frame \cite{schmidt2001c++}}
+    \label{fig:coroutine_stack_frame}
+\end{figure}
+
+
+\subsection{Sisteme de build pentru C/C++}
+
+De cele mai multe ori, proiectele dezvoltate în C și C++ au în componență un număr
+foarte mare de fișiere sursă pe baza cărora se generează executabilul final, iar pe
+lângă numeroasele invocări ale compilatorului necesare în procesul de build al proiectului,
+se realizează o mulțime de operațiuni adiționale pentru a genera structuri de fișiere necesare
+pentru build, a localiza dependințele necesare sau a identifica care pași din procesul de build
+pot fi ignorați deoarece au fost efectuați deja cu succes. De cele mai multe ori, pentru a 
+compila cu succes proiectul și a-l aduce într-o stare funcțională, este nevoie să se ruleze 
+foarte multe comenzi diferite, ceea ce reprezintă o activitate aproapre imposibilă dacă se dorește
+introducerea manuală.
+
+Pentru a automatiza întreg procesul de build al proiectelor C/C++, se folosesc sisteme de build,
+al căror rol este cel de a transforma un limbaj de configurare expresiv și ușor de utilizat în 
+secvența de comenzi ce vor fi rulate pentru produce artefacte în urma compilării proiectului.
+
+Pe lângă faptul că utilizarea unui sistem de build scutește progamatorul de la rularea manuală
+a comenzile necesare, cele mai multe sisteme de build încearcă să reducă timpii de compilare ai
+proiectului determinând dacă fișierele sursă au suferit modificări de la ultima compilare, urmând
+să fie compilate doar fișierele ce au fost modificate. De asemenea, toate sistemele de build uzuale
+permit ca proiectul gestionat să fie compilat folosind opțiuni diverse de configurare, precum
+definirea unui anumit standard al limbajului C sau C++ care să fie folosit de compilator, prezența
+sau absența simbolurilor de debug, setarea nivelului de optimizare aplicat de compilator.
+
+O particularitate comună a tuturor sistemelor de build pentru C/C++ o reprezintă faptul că permit
+definirea de mai multe configurații pe baza cărora să se realizeze compilarea, numite 
+\textbf{"target"}\cite{stallman1988gnu}. În funcție de nevoile ce apar pe parcursul 
+dezvoltării proiectului, proiectul va trebui compilat în configurații diverse, spre exempul:
+build pentru toate configurațiile existente sau doar pentru o configurație anume, build ce injectează
+în sursele proiectului secvențe de cod folosite pentru măsurarea performanțelor la rulare, build pentru
+suita de teste asociată proiectului, și așa mai departe.
+
+În continuarea vom descrie succint modul de funcționare pentru câteva dintre cele mai cunoscute
+sisteme de build folosite pentru limbajele C și C++: \textbf{GNU Make}\cite{stallman1988gnu} și
+\textbf{CMake}.
+
+\subsubsection{GNU Make\cite{stallman1988gnu}}
+
+Utilitarul \textbf{make} primește ca date de intrare script-uri \textbf{Makefile}, în care sunt plasate
+instrucțiuni ce descriu pașii de urmat pentru realiza procesul de build pentru un proiect. GNU Make 
+reprezintă un sistem de build universal și poate fi folosit pentru orice fel de limbaj, nu doar pentru
+C sau C++. Script-ul Makefile conține o serie de reguli care specifică modul în care fiecare fișier
+sursă trebuie compilat, având în vedere o listă de dependințe asociată fișierului sursă. Un fișier sursă
+este recompilat doar în momentul în care el însuși sau una dintre dependințele sale au suferit modificări.
+
+Rularea utilitarului \textbf{make} trebuie efectuată în interiorul unui director care conține script-ul 
+\textbf{Makefile}, menționat precedent, iar dacă nu se furnizează niciun target ca argument din linia de 
+comandă, atunci GNU Make va realiza build-ul pentru primul target întâlnit în cadrul scriptului, care de 
+obicei este responsabil pentru compilarea întregului proiect.
+
+Figura \ref{fig:gnu_make} reprezintă un script Makefile generic, folosit pentru a exemplifica ulterior
+structura unui astfel de script.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, height=0.5\linewidth]{figures/gnu_make.jpg}
+    \caption{Makefile\cite{stallman2001gnu}}
+    \label{fig:gnu_make}
+\end{figure}
+
+La baza oricărui script Makefile se află \textbf{reguli (rules)}, care specifică ce target-uri trebuie
+compilate, care sunt condițiile necesare (prerequisites) pentru a declanșa compilarea pentru target-uri, precum și comanda
+concretă care trebuie rulată pentru a compila target-urile sepcificate. O regulă are următorul format:
+
+\begin{verbatim}
+target: prerequisites 
+ ... comenzi de compilare ...
+\end{verbatim}
+
+Cele mai uzuale elemente ale oricărui script Makefile sunto următoarele:
+
+\begin{itemize}
+    \item Targets - reprezintă rezultatul de ieșire ce trebuie creat în urma compilării, fiind în general
+    asociate unor fișiere obiect sau executabile. Un caz de target special îl reprezintă target-urile 
+    \text{phony}, care sunt asociate cu rularea unor comenzi specifice: build pentru tot proiectul sau 
+    ștergerea artefactelor rezultate din build-urile anterioare
+    \item Prerequisites - fișierele sau țintele ce trebuie să existe sau să fi fost soluționate deja, pentru 
+    a putea rula ținta curentă. Dependințele ce au suferit modificări sunt reactualizate, iar ținta curentă
+    este rulată din nou
+    \item Lista de comenzi (Recipe) - comenzile din listă sunt rulate odată cu solicitarea unui build pentru ținta 
+    părinte, iar lista poate conține orice fel de comenzi care pot fi rulate în interiorul unui terminal
+    \item Special targets - aceste target-uri au o semnificație specială și de cele mai multe ori sunt asociate cu
+    anumite seturi de operațiuni, nu fișiere care trebuie compilate. Un target special este specificat folosind
+    caracterul "." în fața numelui (spre exemplu)
+    \item Prefixuri de comenzi - prin utilizarea de caractere speciale, se poate altera modul de rulare pentru comenzile
+    asociate unei reguli: "-" - se ignoră erorile generate de rularea comenzii curente, 
+    "+" - se forțează rularea comenzii respective, "@" - nu se afișează în terminal fluxul de ieșire al comenzii
+\end{itemize}
+
+\subsubsection{CMake\cite{swidzinski2022modern}}
+
+
+
 

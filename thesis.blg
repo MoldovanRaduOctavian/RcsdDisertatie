@@ -1,14 +1,14 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[91] biber:340> INFO - === Jo iun 25, 2026, 22:22:26
-[115] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[200] Biber.pm:979> INFO - Found 25 citekeys in bib section 0
-[213] Biber.pm:4419> INFO - Processing section 0
-[222] Biber.pm:4610> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[223] bibtex.pm:1713> INFO - LaTeX decoding ...
-[247] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
-[399] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
-[399] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[399] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ro-RO'
-[415] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[423] bbl.pm:763> INFO - Output to thesis.bbl
+[73] biber:340> INFO - === Vi iun 26, 2026, 23:07:26
+[87] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[152] Biber.pm:979> INFO - Found 31 citekeys in bib section 0
+[165] Biber.pm:4419> INFO - Processing section 0
+[174] Biber.pm:4610> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[176] bibtex.pm:1713> INFO - LaTeX decoding ...
+[202] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
+[379] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
+[379] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[379] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ro-RO'
+[397] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[408] bbl.pm:763> INFO - Output to thesis.bbl

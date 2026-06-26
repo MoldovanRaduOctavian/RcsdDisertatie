@@ -748,6 +748,205 @@
       \field{title}{C++ concurrency in action}
       \field{year}{2019}
     \endentry
+    \entry{schmidt2001c++}{book}{}
+      \name{author}{2}{}{%
+        {{hash=e33fa9f7d02d1cff4d5ad2898b9b88cd}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Douglas},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b266130b7b1beae2b28ac23f46cca2d2}{%
+           family={Huston},
+           familyi={H\bibinitperiod},
+           given={Stephen\bibnamedelima D},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {FT Press}%
+      }
+      \strng{namehash}{fc2ed15c4384c31616e846aeb3efbfe6}
+      \strng{fullhash}{fc2ed15c4384c31616e846aeb3efbfe6}
+      \strng{bibnamehash}{fc2ed15c4384c31616e846aeb3efbfe6}
+      \strng{authorbibnamehash}{fc2ed15c4384c31616e846aeb3efbfe6}
+      \strng{authornamehash}{fc2ed15c4384c31616e846aeb3efbfe6}
+      \strng{authorfullhash}{fc2ed15c4384c31616e846aeb3efbfe6}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{C++ Network Programming, Volume I: Mastering Complexity with ACE and Patterns}
+      \field{year}{2001}
+    \endentry
+    \entry{diehl2023shared}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=bc668b052aa5853311e49edebe36de8b}{%
+           family={Diehl},
+           familyi={D\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=162b46fe2a23bbafcae446ec3dc7f536}{%
+           family={Brandt},
+           familyi={B\bibinitperiod},
+           given={Steven\bibnamedelima R},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=9bc969990f326c8dca622f1f798fabd3}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Hartmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5af74cb936fe795ed9f9e64f4dcb9447}
+      \strng{fullhash}{5af74cb936fe795ed9f9e64f4dcb9447}
+      \strng{bibnamehash}{5af74cb936fe795ed9f9e64f4dcb9447}
+      \strng{authorbibnamehash}{5af74cb936fe795ed9f9e64f4dcb9447}
+      \strng{authornamehash}{5af74cb936fe795ed9f9e64f4dcb9447}
+      \strng{authorfullhash}{5af74cb936fe795ed9f9e64f4dcb9447}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Workshop on Asynchronous Many-Task Systems and Applications}
+      \field{title}{Shared memory parallelism in modern C++ and HPX}
+      \field{year}{2023}
+      \field{pages}{27\bibrangedash 38}
+      \range{pages}{12}
+    \endentry
+    \entry{belson2020c++}{article}{}
+      \name{author}{4}{}{%
+        {{hash=59aff355dc0c3951188ce58c16eb5768}{%
+           family={Belson},
+           familyi={B\bibinitperiod},
+           given={Bruce},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3844102187eee3c3c63e59356b0117b7}{%
+           family={Xiang},
+           familyi={X\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=304533c2b267a0573fb30d7e91ae7d50}{%
+           family={Holdsworth},
+           familyi={H\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ca9d1306564bd8917ee0f9668ed92dbb}{%
+           family={Philippa},
+           familyi={P\bibinitperiod},
+           given={Bronson},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{dab89d28f9073fea0bb11e8d7aeca198}
+      \strng{fullhash}{f9fc82affa8a7faa24d64baef3870663}
+      \strng{bibnamehash}{f9fc82affa8a7faa24d64baef3870663}
+      \strng{authorbibnamehash}{f9fc82affa8a7faa24d64baef3870663}
+      \strng{authornamehash}{dab89d28f9073fea0bb11e8d7aeca198}
+      \strng{authorfullhash}{f9fc82affa8a7faa24d64baef3870663}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Embedded Systems Letters}
+      \field{number}{1}
+      \field{title}{C++ 20 coroutines on microcontrollers—what we learned}
+      \field{volume}{13}
+      \field{year}{2020}
+      \field{pages}{9\bibrangedash 12}
+      \range{pages}{4}
+    \endentry
+    \entry{stallman1988gnu}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ff9eb61149ae5689c661089e50f618e4}{%
+           family={Stallman},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima M},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=4be129815ec6e7664c558f5e718561d2}{%
+           family={McGrath},
+           familyi={M\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b44eba830fe9817fbe8e53c82f1cbe04}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b3687641a85860a85b5c6e1eada0e34}
+      \strng{fullhash}{6b3687641a85860a85b5c6e1eada0e34}
+      \strng{bibnamehash}{6b3687641a85860a85b5c6e1eada0e34}
+      \strng{authorbibnamehash}{6b3687641a85860a85b5c6e1eada0e34}
+      \strng{authornamehash}{6b3687641a85860a85b5c6e1eada0e34}
+      \strng{authorfullhash}{6b3687641a85860a85b5c6e1eada0e34}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Free Software Foundation, Boston}
+      \field{title}{GNU make}
+      \field{year}{1988}
+    \endentry
+    \entry{stallman2001gnu}{book}{}
+      \name{author}{3}{}{%
+        {{hash=ff9eb61149ae5689c661089e50f618e4}{%
+           family={Stallman},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima M},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=4be129815ec6e7664c558f5e718561d2}{%
+           family={McGrath},
+           familyi={M\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod}}}%
+        {{hash=bcc3dbeb89d076fabc403bb9123846ba}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Paul\bibnamedelima D},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{73ad08c1b0cda550c23463b143994bf3}
+      \strng{fullhash}{73ad08c1b0cda550c23463b143994bf3}
+      \strng{bibnamehash}{73ad08c1b0cda550c23463b143994bf3}
+      \strng{authorbibnamehash}{73ad08c1b0cda550c23463b143994bf3}
+      \strng{authornamehash}{73ad08c1b0cda550c23463b143994bf3}
+      \strng{authorfullhash}{73ad08c1b0cda550c23463b143994bf3}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GNU make}
+      \field{year}{2001}
+    \endentry
+    \entry{swidzinski2022modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=aa62176e31df96f0c8e9e7827d0e9d36}{%
+           family={Świdziński},
+           familyi={Ś\bibinitperiod},
+           given={Rafa{ł}},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Packt Publishing Ltd}%
+      }
+      \strng{namehash}{aa62176e31df96f0c8e9e7827d0e9d36}
+      \strng{fullhash}{aa62176e31df96f0c8e9e7827d0e9d36}
+      \strng{bibnamehash}{aa62176e31df96f0c8e9e7827d0e9d36}
+      \strng{authorbibnamehash}{aa62176e31df96f0c8e9e7827d0e9d36}
+      \strng{authornamehash}{aa62176e31df96f0c8e9e7827d0e9d36}
+      \strng{authorfullhash}{aa62176e31df96f0c8e9e7827d0e9d36}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Modern CMake for C++: Discover a better approach to building, testing, and packaging your software}
+      \field{year}{2022}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

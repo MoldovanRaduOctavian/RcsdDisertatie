@@ -11,10 +11,14 @@
 \contentsline {subsection}{\numberline {4.1.1}Sisteme distribuite}{15}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Mecanisme de concurență și paralelism}{17}{subsection.4.1.2}%
 \contentsline {subsubsection}{Thread-uri}{18}{section*.2}%
-\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{20}{chapter.5}%
-\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conținut}{21}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{21}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{21}{subsection.6.2.1}%
-\contentsline {chapter}{Bibliography}{22}{subsection.6.2.1}%
-\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{24}{appendix.A}%
+\contentsline {subsubsection}{Corutine}{21}{section*.3}%
+\contentsline {subsection}{\numberline {4.1.3}Sisteme de build pentru C/C++}{22}{subsection.4.1.3}%
+\contentsline {subsubsection}{GNU Make\blx@tocontentsinit {0}\cite {stallman1988gnu}}{23}{section*.4}%
+\contentsline {subsubsection}{CMake\blx@tocontentsinit {0}\cite {swidzinski2022modern}}{24}{section*.5}%
+\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{25}{chapter.5}%
+\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{26}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conținut}{26}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{26}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{26}{subsection.6.2.1}%
+\contentsline {chapter}{Bibliography}{27}{subsection.6.2.1}%
+\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{29}{appendix.A}%
