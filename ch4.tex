@@ -242,6 +242,60 @@ heap. Figura \ref{fig:coroutine_stack_frame} ilustrează informațiile care sunt
     \label{fig:coroutine_stack_frame}
 \end{figure}
 
+\subsection{Funcționarea procesului de compilare pentru C/C++}
+
+Întrucât \textbf{C} și \textbf{C++} fac parte din categoria limbajelor de programare compilate, 
+codul sursă scris în aceste limbaje trebuie mai întâi supus unei transformări în cod mașină și
+împachetat într-un fișier executabil sau o librărie, pentru a putea fi rulat de către sistemul
+de calcul către care se adresează compilarea. Pentru a produce rezultatele finale, compilarea
+trebuie să parcurgă mai multe etape\cite{stroustrup2013c++}:
+
+\begin{itemize}
+    \item Preprocesarea - înainte să înceapă compilarea efectivă, directivele de preprocesare
+    (de cele mai multe ori marcate cu "\#", precum \textbf{\#define}, \textbf{\#include}) și macro-urile (aparițiile
+    din cod ale simbolurilor declarate folosind \textbf{\#define}) sunt expandate, prin înlocuirea cu
+    valoarea lor efectivă: dacă spre exemplu, avem în codul sursă secvența "\textbf{\#include "header.h"}", atunci
+    preprocesorul va adăuga la codul sursă întreg conținutul fișierului "header.h"
+    \item Compilarea - se efectuează transformarea codului sursă C/C++ în serii de instrucțiuni ale limbajului
+    de asamblare specific arhitecturii pentru care se efectuează compilarea, iar secvențele invalide de cod sursă
+    sunt semnalizate prin afișarea de erori și oprirea întreg procesului de compilare
+    \item Asamblarea - se preiau fișierele cu instrucțiuni în limbaj de asamblare rezultate la pasul anterior și 
+    se utilizează ca date de intrare pentru asamblor, care produce fișierele obiect, populate cu seriile de instrucțiuni
+    în cod mașină asociate programului în limbaj de asamblare
+    \item Link-editarea - ultima etapă a procesului de compilare presupune agregarea tuturor fișierelor obiect 
+    rezultate în urma etapei de asamblarea pentru a produce librăria sau executabilul final, iar de asemenea,
+    dacă programul utilizează librării externe, codul mașină asociat acestora este adăugat la executabilul generat
+\end{itemize}
+
+Entititățile componente ale unui proiect C/C++, respectiv artefactele rezultate în urmă desfășurării procesului de 
+build sunt următoarele:
+
+\begin{itemize}
+    \item Fișiere header - sunt marcate de cele mai multe ori folosind extensii precum \textbf{.h, .hh} sau \textbf{.hpp}
+    și conțin definiții pentru funcțiile și tipurile de date utilizate în interiorul fișierelor sursă ale proiectului:
+    structuri, clase, funcții, variabile. Fișierele header nu sunt compilate în mod independent, dar conținutul lor este
+    înlocuit cu directivele \textbf{\#include} asociate în urma preprocesării
+    \item Fișiere sursă - sunt marcate cu extensiile \textbf{.c, .cc, .cpp} și conțin implementarea aplicației care se compilează,
+    conținutul acestor influențând în mod direct funcționarea aplicației. Ele sunt transformate în fișiere obiect, ce
+    conțin cod mașină, în urma procesului de compilare    
+    \item Fișiere obiect - marcate cu extensia \textbf{.o}, ele sunt rezultatul asamblării rezultatelor produse în faza de
+    compilare și conțin cod mașină ce poate fi executat de arhitectura sistemului de calcul pentru care s-a comandat
+    compilarea
+    \item Fișiere executabile - există mai multe tipuri de fișiere executabile, în funcție de modul în care a fost comandată
+    compilarea: programe ce se pot rula (.exe, .out), librării statice ce pot fi adăugate în etapa de link-editare a procesului
+    de build pentru alt proiect cu scopul de a adăuga funcționaltăți suplimantare (.a, .lib) sau librării dinamice, care pot
+    fi încărcate în mod partajat de către mai multe executabile în timpul rulării (.dll, .so)
+\end{itemize}
+
+În încheierea acestei secțiuni, oferim Figura \ref{fig:compilation_process} pentru a ilustra etapele procesului de compilare pentru fișiere sursă 
+ale unui proiect C/C++.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, height=0.45\linewidth]{figures/compilation_process.jpg}
+    \caption{Compilare fișierelor sursă C/C++ \cite{tutorialspoint_c_compilation_process}}
+    \label{fig:compilation_process}
+\end{figure}
 
 \subsection{Sisteme de build pentru C/C++}
 
@@ -334,6 +388,296 @@ Cele mai uzuale elemente ale oricărui script Makefile sunto următoarele:
 
 \subsubsection{CMake\cite{swidzinski2022modern}}
 
+\textbf{CMake} reprezintă un \textbf{meta-build system}, întrucât acesta transformă conținutul script-urilor \textbf{CMakeLists.txt}
+în script-uri de configurare pentru alte tipuri de sisteme de build: GNU Make, Ninja, Autotools, MSBuild și altele.
+CMake are ca rol automatizarea activităților de dezvoltare uzuale din cadrul unui proiect:
 
+\begin{itemize}
+    \item Gestiunea dependințelor
+    \item Compilarea proiectului sub formă de executabil sau librărie
+    \item Instalarea pe sistem a modulului rezultat în urma build-ului
+    \item Generarea automată de documentație
+    \item Rularea de teste
+\end{itemize}
 
+Funcționarea sistemului de build \textbf{CMake} se bazează pe tool-uri externe pentru efectuarea
+operațiunilor specificate în scriptul de build \textbf{CMakeLists.txt}, întrucât acest sistem de
+build are doar rol în orchestrarea activităților asociate procesului. Rularea procesului de build
+este împărțită în trei etape: configurarea, generarea proiectului și compilarea efectivă.
 
+În faza de \textbf{configurare}, se creează un director nou care va conține informații legate de 
+mediul în care se produce build-ul proiectului, precum compilatoarele și utilitarele existente, 
+arhitectura sistemului, existența unor librării folosite la linking, iar un program de test este
+compilat pentru a verifica că toolchain-ul funcționează cum trebuie.
+
+Pentru a se determina structura proiectului, dependințele de compilare și target-urile de compilare,
+se execută script-ul CMakeLists.txt. Informațiile care au șanse mari să ramână nealterate de la o rulare
+la alta sunt stocate într-un fișier \textbf{CMakeCache.txt}, pentru a economisi timp la rulările următoare.
+
+Urmează faza de \textbf{generare} a proiectului, în care comenzile din script-ul CMakeLists.txt sunt translatate
+în alte script-uri aferente build system-ului configurat de la început: Ninja, GNU Make, MSBuild.
+
+Faza de \textbf{build} produce rezultatele așteptate în urma compilării proiectului, căci este etapa responsabilă
+pentru rularea build system-ului corespunzător script-urilor produse în etapa de generare. Acum se apelează
+compilator-ul, linker-ul, utilitare pentru analiza codului sau generarea automată de documentație, precum și alte 
+operațiuni configurate.
+
+În finalul secțiunii, oferim Figura \ref{fig:cmake} pentru a exemplifica modul de funcționare pentru meta-build system-ul
+CMake.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, height=0.5\linewidth]{figures/cmake_stages.jpg}
+    \caption{Etapele funcționării CMake\cite{swidzinski2022modern}}
+    \label{fig:cmake}
+\end{figure}
+
+\newpage
+
+\section{Arhitectura conceptuală a sistemului}
+
+Această secțiune a lucrării are rolul de a explica în mod detaliat alegerile din spatele deciziilor arhitecturale
+care modelează structura și funcționarea sistemului de compilare distribuită. Se prezintă principalele module
+care intră în componența aplicației, alături de tehnologiile alese pentru realiza implementa funcționalitatea acestora.
+
+Întrucât se dorește dezvoltarea unui sistem software care să preia cererile de compilare solicitate de către un sistem
+de calcul gazdă și să le distribuie în mod uniform către alte sisteme accesibile în rețea, pentru a putea compila cât mai multe
+fișiere sursă în regim paralel, am elaborat o listă minimală de cerințe funcționale ce trebuie implementate pentru elaborarea
+unui astfel de sistem:
+
+\begin{itemize}
+    \item Interceptarea comenzilor de compilare - pentru a putea să distribuim către alte noduri din rețea sarcinile de compilare,
+    trebuie să interceptăm fiecare apel către compilatorul clasic și să îl redirecționăm către un modul care va declanșa rularea comenzii
+    respective pe unul dintre nodurile disponibile 
+    \item Parsarea comenzilor de compilare - în funcție de argumentele din linia de comandă care sunt folosite pentru a compila
+    un anumit fișier sursă, anumite opțiuni furnizate pentru compilarea locală necesită ajustări pentru ca compilarea să se realizeze
+    cu succes în mediul de rulare al dispozitivul remote care preia compilarea
+    \item Elaborarea listei cu dependețele de compilare - fiecare fișier sursă are nevoie ca mulțimea de fișiere header pe care le include
+    să fie expandate înainte de declanșare etapei de compilare, motiv pentru care, pe lângă fișierul sursă de compilat, la nodul remote
+    trebuie să fie trimise și toate fișierele header care fac parte din lista de dependințe a acestuia
+    \item Definirea unui protocol de comunicație - funcționarea sistemului se bazează pe interacțiunea dintre mai 
+    multe sisteme de calcul, prin intermediul unei rețele de calculatoare, deci este necesară proiectarea unui protocol de comunicare care să modeleze cât mai fidel
+    interacțiunea dintre nodurile implicate: inițializarea unei sesiuni de compilare pentru un fișier, transmiterea dependințelor de compilare
+    pentru fișierul respectiv, tranmiterea rezultatelor compilării înapoi la nodul care a lansat solicitarea, semnalarea erorilor de
+    comunicare și așa mai departe
+    \item Distribuirea sarcinii pe noduri - se dorește implementarea unui mecanism care să publice date despre resursele disponibile 
+    , ce pot fi folosite pentru compilare, iar în baza acestor informații să se aleagă nodul care va deservi cererea de compilare
+    \item Asigurarea compatibilității cu tool-urile existente - se dorește ca sistemul să fie ușor de integrat pentru a reduce durate de compilare
+    a unui proiect care folosește compilatoare și sisteme build bine cunoscute în industrie, fără a fi nevoie să fie modificată structura proiectului
+    sau a configurației de build pentru a putea beneficia de avantajele oferite de sistemul de compilare distribuită
+    \item Asigurarea validității datelor - întrucât transferul tuturor dependințelor pentru un proiect C/C++ presupune trimiterea în
+    rețea a unui volum însemnat de date, este necesar ca odată primite, validitatea datelor să poate fi verificată, pentru a avea o siguranță
+    cât mai mare că operațiunea de compilare distribută va produce aceleași rezultate ca operațiunea de compilare locală
+\end{itemize}
+
+Principalul impuls care a determinat alegerea implementării unui sistem de compilare distribuită ca temă a lucrării îl constituie dorința
+de a explora posibilitatea de reduce timpul de compilare pentru proiectul în care activez, la actualul loc de muncă. Organizația din care fac parte
+a optat pentru dotarea echipelor cu sisteme workstation performante (dotate cu procesoare cu 18 nuclee), care în marea majoritate a timpului
+nu sunt utilizate astfel încât să fie exploatată pe deplin capacitate lor de calcul, iar proiectele dezvoltate în cadrul departamentului
+pot să depășească durate de zeci de minute pentru a finaliza procesul de build. Acest context modelează în mare parte constrângerile
+pe care le impunem în implementarea sistemului:
+
+\begin{itemize}
+    \item Nodurile care fac parte din sistem sunt situate în aceeași rețea LAN
+    \item Resursele computaționale ale nodurilor care participă la compilare nu diferă de la un nod la altul
+    \item Mediul de rulare (sistem de operare, versiune tool-uri) este aproape identic pentru toate nodurile sistemului
+\end{itemize}
+
+Având în vedere cerințele funcționale stabilite anterior, am identificat modulele de bază care sunt responsbile pentru distribuirea și efectuarea comenzilor
+de compilare în cadrul sistemului:
+
+\begin{itemize}
+    \item Interceptorul pentru comenzile de compilare - are ca rol captarea de apeluri locale ale compilatorului și transmiterea acestora
+    către un alt modul care să realizeze operațiunile necesare pentru distribuirea compilării către nodurile disponibile
+    \item Aplicația client - acestă aplicație va rula pe nodul care comandă compilarea și transformă comenzile de compilare primite
+    de la interceptor în solicitări care sunt trimise către nodurile ce rulează aplicația server care declanșează compilarea, iar totodată
+    orchestrează tot fluxul de comunicare cu nodurile server
+    \item Aplicația server - va rula pe nodurile ca își pun la dispoziție resursele de calcul și are rolul de a soluționa cererile de compilare
+    primite de la nodul care rulează aplicația client, precum să și stocheze dependințele primite de la nodurile client și fișierele obiect rezultate
+    în urma compilării, care sunt returnate prin rețea către nodul solicitant
+\end{itemize}
+
+Figura \ref{fig:distbuild_diagram} ilustrează într-o manieră simplificată interacțiunea dintre modulele sistemului de compilare distribuită.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, height=0.6\linewidth]{figures/distbuild_diagram.png}
+    \caption{Diagrama conceptuală a sistemului de compilare distribuită}
+    \label{fig:distbuild_diagram}
+\end{figure}
+
+În continuare vom analiza alegerile arhitecturale pentru cele trei componente mari ale sistemului.
+
+\subsection{Interceptorul pentru comenzile de compilare}
+
+O primă observație care trebuie enunțată în legătură cu arhitectura mecanismului de interceptare a comenzilor de
+compilare o reprezintă faptul că funcționarea acestui modul nu trebuie să altereze apelurile de compilare
+generate de către toate proiectele găzduite pe nodul client, deoarece compilarea acestora folosind sistemul de 
+compilare distribuită este opțională. 
+
+Astfel, este necesar să găsim o modalitate de a implica sistemul de compilare distribuită în procesul de build al unui
+proiect doar în cazul în care acestă alegere este setată în mod explicit, fără a deveni un comportament global. Pentru rezolvarea
+acestei probleme se poate apela la setarea unor anumite opțiuni de configurare pentru sistemul de build folosit de către proiectul
+cauză, astfel încât în locul comenzii obișnuite de compilare pentru un fișiser sursă, să se apeleze comanda respectivă cu un prefix, care să redirecționeze
+comanda de compilare către un alt program.
+
+Spre exemplu, această funcționalitate este prezentă în cadrul sistemului de build \textbf{CMake}, care permite specificarea parametrului
+\textbf{-DCMAKE\_CXX\_COMPILER\_LAUNCHER}, la rularea pentru generarea inițială a structurii proiectului, pentru a alege 
+un executabil care să fie folosit ca prefix pentru toate invocările de compiler. Se va rula comanda CMake pentru generarea proiectului:
+
+\begin{lstlisting}[language=bash]
+cmake -S . -B ./build \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_COMPILER_LAUNCHER="/distbuild_wrapper"
+\end{lstlisting}
+
+, iar fiecare apel către compilator va avea adăugat ca prefix executabilul respectiv:
+
+\begin{lstlisting}[language=bash]
+distbuild_wrapper /usr/bin/c++ \
+    -DPROJECT_EXPORTS \
+    -DNDEBUG \
+    -Iinclude \
+    -std=c++20 \
+    -O2 \
+    -include build/cmake_pch.hxx \
+    -c src/server.cpp \
+    -o build/server.o    
+\end{lstlisting}
+
+Această abordare este folosită și de către sistemul de compilare distribuită \textbf{Distcc}\cite{distcc}, despre care se menționează că
+un executabil este folosit ca wrapper pentru comenzile către compilatorul \textbf{GCC}, invocate prin rularea script-ului \textbf{Makefile}.
+
+Executabilul wrapper pentru compiler, trebuie să imite comportamentul compilatorului, astfel încât sistemul de build care apelează compilatorul
+în mod normal să nu detecteze erori legate de funcționarea diferită a procesului de build. Pentru fiecare invocare activă a compilatorului,
+se va crea un nou proces al wrapper-ului, care este dator să implementeze următoarele caracteristici de comportament:
+
+\begin{itemize}
+    \item Să deschidă o conexiune către aplicația client aflată în rulare
+    \item Să trimtă către aplicația client întreaga comandă de compilare
+    \item Să trimită către aplicația client directorul curent, în care a fost invocat executabilul wrapper, deoarce în funcție 
+    de această locație aplicația client trebuie să realizeze transformări asupra path-urile transmise ca parametru în comanda
+    de compilare
+    \item Să nu își înceteze execuția până când rezultatul compilării fișierului nu este recepționat, întrucât la un apel adevărat,
+    executabilul compilatorului rulează până când compilarea s-a finalizat
+    \item Să afișeze toate erorile de compilare sau warning-urile aferente apelului de compilare asociat, odată ce acestea
+    sunt primite de la aplicația client
+\end{itemize}
+
+Un alt aspect care merită discutat în continuare îl constituie modalitatea în care se petrece comunicarea dinte executabilul wrapper
+care interceptează comenzile de compilare și aplicația client. Trebuie luat în calcul faptul că întotdeauna aplicația client a sistemului va 
+rula pe același nod care rulează și numeroasele instanțe ale excutabilului wrapper (câte un proces al executabilului wrapper pentru fiecare
+apel de compiler activ), deci este foarte avantajoasă utilizarea tehnicilor de comunicare între procese (\textbf{Inter-Process Communication}).
+
+\textbf{UNIX domain sockets}\cite{stevens2013advanced} pot fi utilizate pentru a facilita comunicarea dintre procese care rulează pe același computer. Este posibilă și
+utilizarea socke-urile clasice care fac parte din \textbf{Internet domain}, însă comunicarea folosind socket-uri UNIX domain este mai eficientă:
+se bazează doar pe copierea de date, fără a fi nevoie să urmeze pașii de procesare ai unui protocol anume, deci fără utilizare de segmente header
+care trebuie adăugate la datele trimise, fără numere de secvențiere pentru mesaje și confirmări de primire a datelor. Spre deosebire de socket-urile
+obișnuite ce aparțin de Internet domain, care pot fi asociate cu o adresă IP și cu un port, socket-urile UNIX se asociază
+cu un path către un fișier de tipul \textbf{S\_IFSOCK} cu numele respectiv.
+
+Astfel, la nivelul aplicației client, există posibilitatea de a crea un socket UNIX, care să fie asociat unui path unic, iar toate instanțele
+de proces ale executabilul wrapper să stabilească conexiuni cu acest socket UNIX pentru a transfera comenzile de compilare și path-ul 
+directorului din care s-a solicitate compilarea către aplicația client.
+
+Figura \ref{fig:unix_ipc_wrapper} ilustrează comunicarea dintre instanțele de proces active ale wrapper-ului de compiler și aplicația client.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth, height=0.53\linewidth]{figures/unix_ipc_wrapper.png}
+    \caption{Comunicare cu aplicația client prin UNIX domain socket}
+    \label{fig:unix_ipc_wrapper}
+\end{figure}
+
+\subsection{Aplicația client}
+
+Înainte de a explica arhitectura aplicației client, trebuie să oferim câteva informații legate de modalitatea de paralelizare a compilării proiectelor,
+care afectează funcționalitățile aplicației client:
+
+\begin{itemize}
+    \item Pentru a se putea realiza transformarea unui fișier cu cod sursă C/C++ într-un fișier obiect, care conține cod mașină,
+    este nevoie ca la momentul compilării să fie valabile toate fișierele header care sunt incluse de către fișierul sursă respectiv,
+    iar aceasta cerință se extinde și asupra fișierelor header incluse, în mod recursiv
+    \item Pentru a se efectua operațiunea de link-editare și creare a fișierului executabil, fie că acesta este un executabil de sine stătător
+    sau o librărie, este nevoie a toate fișierele obiect provenite în urma compilării proiectului să fie disponibile
+\end{itemize}
+
+Așadar, principiul de funcționare al aplicației client se bazează pe distribuirea sarcinii de compilare a fiecărui fișier sursă din proiect către un nod server,
+iar fișierele obiect primite de la nodurile server sunt folsite de către client pentru a realiza în mod local operațiunea de link-editare a artefactelor finale.
+Link-editarea este soluționată local, pentru că necesitatea de a avea acces la toate fișierele obiect ale proiectului o face să fie o operație foarte dificil 
+de paralelizat. În cazul în care compilarea unui fișier sursă pe un nod server eșuează cu o eroare de compilare, atunci compilarea pentru fișierul respectiv
+este reluată de către aplicația client, deoarece există anumite situații în care unele fișiere sursă nu pot să fie compilate în afara mediului de lucru
+original (spre exemplu, fișierul sursă conține directive \textbf{\#include} care încearcă includerea unor fișiere din path-uri absolute, care nu există pe nodul server).
+
+În continuare, vom prezenta lista reponsabilităților concrete pe care trebuie să le îndeplinească aplicația client, a căror metodă de integrare o vom analiza 
+în amănunt:
+
+\begin{itemize}
+    \item Să stabilească conexiuni folosind socket-uri UNIX domain cu toate instanțele wrapper-ului de compiler
+    și să returneze rezultatul operațiunilor de compilare către acestea
+    \item Să realizeze parsarea apelurilor de compilator și să ajusteze parametrii astfel încât comandă să poată fi rulată 
+    de către un nod server. De asemenea, trebuie extrase informații necesare pentru determinarea dependințelor fișierului sursă
+    supus compilării
+    \item Să inițieze și gestioneze conexiuni multiple cu nodurile server, în mod concurent, și să transmită solicitările de compilare către
+    nodurile server cu resurse disponibile, iar rezultatele de compilare să fie centralizate concurent
+    \item Să realizeze operațiunea de link-editare în mod local
+    \item Să termine sesiunile de comunicare eșuate cu server-ul, în cazul identificării unui defect în timpul schimbului de mesaje
+    \item În cazul unui eșec de compilare al unui nod server, să încerce să efectueze operațiunea de compilare în mod local
+\end{itemize}
+
+\subsubsection{Parsarea comenzilor de compilare}
+
+Comanda de compilare primită de la o instanță a wrapper-ului de compiler conține toate informațiile de care este nevoie pentru a genera un fișier obiect din codul sursă
+furnizat ca intrare. Printre informațiile importante care se regăsesc în cadrul unei astfel de comenzi, amintim: tipul de compilator utilizat,
+path-ul cu locația fișierului sursă de compilat, directoarele suplimentare în care sunt situate fișiere header incluse prin directiva \textbf{\#include},
+opțtiune generale de compilare (nivelul de optimizare, introducerea simbolurilor de debug), constante adiționale care să fie introduse în etapa de preprocesare,
+locația la care să fie plasat fișierul obiect rezultat. 
+
+În cadrul sistemului de compilare distribuită, informațiile extrase din interiorul comenzii de compilare primite sunt folosite pentru a genera corect lista de dependințe 
+header a fișierelor sursă sau pentru a realiza ajustările necesare la parametri comenzii astfel încât aceasta să poată fi executată cu succes pe un nod server aflat la distanță.
+
+Argumentele din comanda de compilare sunt parcurse secvențial, iar în funcție de conținutul comenzii, aceasta este clasificată: compilare, link-editare sau alt tip. Se extrage executabilul
+compilatorului folosit pentru a determina dacă face parte din lista celor acceptate, iar toate path-urile relative întâlnite sunt convertite la path-uri absolute.
+
+De asemenea, sunt reținute directoarele specificate pentru localizarea de fișiere header, definite folosind comenzi precum: \textbf{-I, -iystem sau -iquote}.
+Aceste directoare sunt folosite de către modulul de parsare al dependințelor pentru fișierele sursă: de fiecare dată când este găsită
+o directivă \#include în antetul fișierului sursă, numele header-ului inclus este căutat în directoarele specificate folosind comenzile respective.
+
+\subsubsection{Extragerea dependințelor pentru fișierele sursă}
+
+Modulul implicat în extragerea listei de fișiere header de care depinde compilarea fișerelor sursă pe nodul server construiește un graf complet de dependințe
+între fișierele proiectului compilat, indiferent de adâncimea ierarhiei de directive \textbf{\#include}.
+
+Modalitatea de procesare a unui fișier sursă se bazează pe parcurgerea secvențială a conținutului acestuia, pentru a verifica care dintre liniile fișierului
+conțin directive \textbf{\#include} sau \textbf{\#include\_next}. După extragerea conținutului acestor tipuri de directive, acestea sunt categorizate:
+
+\begin{itemize}
+    \item cele cu delimitare cu paranteze unghiulare (\textbf{<...>}) sunt specifice fișierelor header ce fac parte din librăriile de sistem
+    \item cele cu delimitare pe bază de ghilimele (\textbf{"..."}) sunt de obicei folosite pentru includerea de fișiere header locale proiectului
+\end{itemize}
+
+Pe baza categorizării directivelor de includere a fișierelor header, se alterează locațiile la care sunt căutate fișierele respective sau ordinea în care se efectuează
+căutarea.
+
+După ce fiecare fișier header din codul sursă destinat compilării este extras și stocat, se încearcă găsirea directorului părinte pentru fiecare dependință.
+În funcție de natura directivei de includere în care a fost găsit un anumit fișier, acesta este căutat prima oară relativ la directorul în care se află fișierul
+sursă de compilat, iar apoi se verifică locațiile specificate în lista de argumente a apelului către compilator:
+
+\begin{itemize}
+    \item \textbf{-iquote} - directoare cu headere locale care sunt incluse cu ghilimele
+    \item \textbf{-I} - directoare cu fișiere header ce nu aparțin librăriilor de sistem
+    \item \textbf{-isystem} - directoare cu fișiere header din librăriile de sistem
+\end{itemize}
+
+Operațiunile explicate anterior sunt repetate folosind o abordare recursivă, întrucât după ce locația unui fișier header inclus este găsită,
+fișierul respectiv este parcurs și devine astfel punctul de pornire pentru soluționarea unei noi liste de directive de includere. Această abordare
+duce la construirea grafului de dependințe folosind o metodă de parcurgere în adâncime (\textbf{depth-first}), ceea ce duce și la detectarea
+dependințelor tranzitive ale fișierului sursă inițial.
+
+Odată ce un fișier este parcurs în întregime, iar toate directivele de includere pe care acesta le cuprinde sunt soluționate, toate informațiile sunt
+memorate într-un spațiu de stocare cache, astfel încât să nu mai fie nevoie ca fișierul să parsat din nou, la rulări ulterioare, ceea ce are rolul de
+a îmbunătăți timpul de execuție. Fiecare fișier procesat este caracterizat folosind valoarea hash-ului \textbf{SHA1}\cite{eastlake2001us}, calculată pe baza conținutului,
+precum și a dimensiunii totale.
+
+Astfel, dacă un fișier deja a fost parcurs, iar dimensiunea sa și valoarea hash-ului nu s-a modificat de la ultima rulare, informațiile despre fișierul
+respectiv sunt extrase direct din cache.

@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="kPRwSbgda3SZOsJ1wYCo">
+    <mxGraphModel dx="693" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zs7lghiyO3zl71CwbC2z-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="370" width="540" x="80" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nodul Client" vertex="1">
+          <mxGeometry height="30" width="100" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Interceptor comenzi de compilare" vertex="1">
+          <mxGeometry height="70" width="180" x="260" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Comandă de compilare locală:&amp;nbsp;g++ -c main.cpp -o main.o" vertex="1">
+          <mxGeometry height="40" width="330" x="190" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-8" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zs7lghiyO3zl71CwbC2z-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="100" as="sourcePoint" />
+            <mxPoint x="390" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Aplicație client" vertex="1">
+          <mxGeometry height="70" width="180" x="260" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-10" edge="1" parent="1" source="zs7lghiyO3zl71CwbC2z-4" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="zs7lghiyO3zl71CwbC2z-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="520" y="230" as="sourcePoint" />
+            <mxPoint x="520" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Apel compiler interceptat" vertex="1">
+          <mxGeometry height="30" width="155" x="365" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="180" width="220" x="80" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nod server" vertex="1">
+          <mxGeometry height="30" width="70" x="100" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Aplicație server" vertex="1">
+          <mxGeometry height="60" width="120" x="120" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-15" edge="1" parent="1" source="zs7lghiyO3zl71CwbC2z-9" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="zs7lghiyO3zl71CwbC2z-14" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="370" y="480" as="sourcePoint" />
+            <mxPoint x="410" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Apel compiler + dependințe" vertex="1">
+          <mxGeometry height="30" width="155" x="50" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-17" edge="1" parent="1" source="zs7lghiyO3zl71CwbC2z-14" style="endArrow=classic;html=1;rounded=0;entryX=0.389;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;" target="zs7lghiyO3zl71CwbC2z-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="470" y="450" as="sourcePoint" />
+            <mxPoint x="360" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Rezultate compilare" vertex="1">
+          <mxGeometry height="30" width="90" x="300" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-19" edge="1" parent="1" source="zs7lghiyO3zl71CwbC2z-9" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="zs7lghiyO3zl71CwbC2z-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="179.5" y="270" as="sourcePoint" />
+            <mxPoint x="179.5" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Output compiler&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="180" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="180" width="220" x="400" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nod server" vertex="1">
+          <mxGeometry height="30" width="70" x="540" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Aplicație server" vertex="1">
+          <mxGeometry height="60" width="120" x="440" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-24" edge="1" parent="1" source="zs7lghiyO3zl71CwbC2z-9" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="zs7lghiyO3zl71CwbC2z-23" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="385" y="440" as="sourcePoint" />
+            <mxPoint x="260" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-25" edge="1" parent="1" source="zs7lghiyO3zl71CwbC2z-23" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" target="zs7lghiyO3zl71CwbC2z-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="305" y="640" as="sourcePoint" />
+            <mxPoint x="395" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zs7lghiyO3zl71CwbC2z-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Apel compiler + dependințe" vertex="1">
+          <mxGeometry height="30" width="155" x="455" y="430" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

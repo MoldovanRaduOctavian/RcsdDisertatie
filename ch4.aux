@@ -16,13 +16,27 @@
 \@writefile{toc}{\contentsline {subsubsection}{Corutine}{21}{section*.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Coroutine stack frame \blx@tocontentsinit {0}\cite {schmidt2001c++}}}{22}{figure.4.4}\protected@file@percent }
 \newlabel{fig:coroutine_stack_frame}{{4.4}{22}{Coroutine stack frame \cite {schmidt2001c++}}{figure.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Sisteme de build pentru C/C++}{22}{subsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GNU Make\blx@tocontentsinit {0}\cite {stallman1988gnu}}{23}{section*.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Makefile\blx@tocontentsinit {0}\cite {stallman2001gnu}}}{23}{figure.4.5}\protected@file@percent }
-\newlabel{fig:gnu_make}{{4.5}{23}{Makefile\cite {stallman2001gnu}}{figure.4.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{CMake\blx@tocontentsinit {0}\cite {swidzinski2022modern}}{24}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Funcționarea procesului de compilare pentru C/C++}{22}{subsection.4.1.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Compilare fișierelor sursă C/C++ \blx@tocontentsinit {0}\cite {tutorialspoint_c_compilation_process}}}{23}{figure.4.5}\protected@file@percent }
+\newlabel{fig:compilation_process}{{4.5}{23}{Compilare fișierelor sursă C/C++ \cite {tutorialspoint_c_compilation_process}}{figure.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Sisteme de build pentru C/C++}{24}{subsection.4.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GNU Make\blx@tocontentsinit {0}\cite {stallman1988gnu}}{24}{section*.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Makefile\blx@tocontentsinit {0}\cite {stallman2001gnu}}}{25}{figure.4.6}\protected@file@percent }
+\newlabel{fig:gnu_make}{{4.6}{25}{Makefile\cite {stallman2001gnu}}{figure.4.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{CMake\blx@tocontentsinit {0}\cite {swidzinski2022modern}}{26}{section*.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Etapele funcționării CMake\blx@tocontentsinit {0}\cite {swidzinski2022modern}}}{27}{figure.4.7}\protected@file@percent }
+\newlabel{fig:cmake}{{4.7}{27}{Etapele funcționării CMake\cite {swidzinski2022modern}}{figure.4.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Arhitectura conceptuală a sistemului}{28}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Diagrama conceptuală a sistemului de compilare distribuită}}{30}{figure.4.8}\protected@file@percent }
+\newlabel{fig:distbuild_diagram}{{4.8}{30}{Diagrama conceptuală a sistemului de compilare distribuită}{figure.4.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Interceptorul pentru comenzile de compilare}{30}{subsection.4.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Comunicare cu aplicația client prin UNIX domain socket}}{32}{figure.4.9}\protected@file@percent }
+\newlabel{fig:unix_ipc_wrapper}{{4.9}{32}{Comunicare cu aplicația client prin UNIX domain socket}{figure.4.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Aplicația client}{33}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Parsarea comenzilor de compilare}{34}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Extragerea dependințelor pentru fișierele sursă}{34}{section*.7}\protected@file@percent }
 \@setckpt{ch4}{
-\setcounter{page}{25}
+\setcounter{page}{36}
 \setcounter{equation}{0}
 \setcounter{enumi}{6}
 \setcounter{enumii}{0}
@@ -32,12 +46,12 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{4}
-\setcounter{section}{1}
-\setcounter{subsection}{3}
+\setcounter{section}{2}
+\setcounter{subsection}{2}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{5}
+\setcounter{figure}{9}
 \setcounter{table}{0}
 \setcounter{tabx@nest}{0}
 \setcounter{listtotal}{0}
@@ -48,7 +62,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{53}
+\setcounter{instcount}{59}
 \setcounter{maxnames}{3}
 \setcounter{minnames}{3}
 \setcounter{maxitems}{3}
@@ -154,7 +168,7 @@
 \setcounter{bbx:relatedcount}{0}
 \setcounter{bbx:relatedtotal}{0}
 \setcounter{cbx@tempcnta}{0}
-\setcounter{cbx@tempcntb}{31}
+\setcounter{cbx@tempcntb}{35}
 \setcounter{cbx@tempcntc}{0}
 \setcounter{cbx@tempcntd}{-1}
 \setcounter{parentequation}{0}
@@ -164,10 +178,10 @@
 \setcounter{ALC@line}{0}
 \setcounter{ALC@rem}{0}
 \setcounter{ALC@depth}{0}
-\setcounter{lstnumber}{1}
+\setcounter{lstnumber}{10}
 \setcounter{section@level}{3}
 \setcounter{Item}{6}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{12}
+\setcounter{bookmark@seq@number}{16}
 \setcounter{lstlisting}{0}
 }

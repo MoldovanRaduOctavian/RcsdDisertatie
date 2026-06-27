@@ -1,14 +1,16 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[73] biber:340> INFO - === Vi iun 26, 2026, 23:07:26
-[87] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[152] Biber.pm:979> INFO - Found 31 citekeys in bib section 0
-[165] Biber.pm:4419> INFO - Processing section 0
-[174] Biber.pm:4610> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[176] bibtex.pm:1713> INFO - LaTeX decoding ...
-[202] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
-[379] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
-[379] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[379] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ro-RO'
-[397] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[408] bbl.pm:763> INFO - Output to thesis.bbl
+[71] biber:340> INFO - === Sb iun 27, 2026, 22:15:32
+[84] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[147] Biber.pm:979> INFO - Found 35 citekeys in bib section 0
+[161] Biber.pm:4419> INFO - Processing section 0
+[171] Biber.pm:4610> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[173] bibtex.pm:1713> INFO - LaTeX decoding ...
+[200] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
+[394] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
+[394] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[394] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ro-RO'
+[414] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[427] bbl.pm:763> INFO - Output to thesis.bbl
+[427] Biber.pm:131> WARN - Duplicate entry key: 'stroustrup2013c++' in file 'thesis.bib', skipping ...
+[427] Biber.pm:133> INFO - WARNINGS: 1

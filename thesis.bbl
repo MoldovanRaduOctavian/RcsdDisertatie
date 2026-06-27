@@ -858,6 +858,27 @@
       \field{pages}{9\bibrangedash 12}
       \range{pages}{4}
     \endentry
+    \entry{tutorialspoint_c_compilation_process}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=02bb701746a2e79501c61d749787e4a0}{%
+           family={{TutorialsPoint}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{02bb701746a2e79501c61d749787e4a0}
+      \strng{fullhash}{02bb701746a2e79501c61d749787e4a0}
+      \strng{bibnamehash}{02bb701746a2e79501c61d749787e4a0}
+      \strng{authorbibnamehash}{02bb701746a2e79501c61d749787e4a0}
+      \strng{authornamehash}{02bb701746a2e79501c61d749787e4a0}
+      \strng{authorfullhash}{02bb701746a2e79501c61d749787e4a0}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.tutorialspoint.com/cprogramming/c-compilation-process.htm}}
+      \field{note}{Accessed: 2026-06-27}
+      \field{title}{Compilation Process in C}
+      \field{year}{2025}
+    \endentry
     \entry{stallman1988gnu}{article}{}
       \name{author}{3}{}{%
         {{hash=ff9eb61149ae5689c661089e50f618e4}{%
@@ -883,8 +904,8 @@
       \strng{authornamehash}{6b3687641a85860a85b5c6e1eada0e34}
       \strng{authorfullhash}{6b3687641a85860a85b5c6e1eada0e34}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Free Software Foundation, Boston}
@@ -946,6 +967,88 @@
       \field{labeltitlesource}{title}
       \field{title}{Modern CMake for C++: Discover a better approach to building, testing, and packaging your software}
       \field{year}{2022}
+    \endentry
+    \entry{distcc}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=d4f688a896a1afe8e521270967ed539a}{%
+           family={Pool},
+           familyi={P\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=96858cb143562346b7f065e32c403f30}{%
+           family={Contributors},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7701443409057814a4d5b8d22c4b6f7}
+      \strng{fullhash}{a7701443409057814a4d5b8d22c4b6f7}
+      \strng{bibnamehash}{a7701443409057814a4d5b8d22c4b6f7}
+      \strng{authorbibnamehash}{a7701443409057814a4d5b8d22c4b6f7}
+      \strng{authornamehash}{a7701443409057814a4d5b8d22c4b6f7}
+      \strng{authorfullhash}{a7701443409057814a4d5b8d22c4b6f7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.distcc.org/}}
+      \field{note}{Accessed: 2025-02-09}
+      \field{title}{distcc - Distributed C/C++ compilation}
+      \field{year}{2025}
+    \endentry
+    \entry{stevens2013advanced}{book}{}
+      \name{author}{2}{}{%
+        {{hash=882cf5ccc1ce0f8a7bfc9d838094d291}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W\bibnamedelima Richard},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d45d8f97a669ec6c26ed49cf5ff2897a}{%
+           family={Rago},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{fullhash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{bibnamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authorbibnamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authornamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authorfullhash}{e1035e68493cb6f18a15deca2831c327}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Advanced programming in the UNIX environment}
+      \field{year}{2013}
+    \endentry
+    \entry{eastlake2001us}{report}{}
+      \name{author}{2}{}{%
+        {{hash=5d245c0f8ca8a534510e38b33a3181c8}{%
+           family={Eastlake\bibnamedelima 3rd},
+           familyi={E\bibinitperiod\bibinitdelim 3\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7802fa7f323f09f63c33b0520f2f3835}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{fad48621b19e0b53b3b340adf01547a2}
+      \strng{fullhash}{fad48621b19e0b53b3b340adf01547a2}
+      \strng{bibnamehash}{fad48621b19e0b53b3b340adf01547a2}
+      \strng{authorbibnamehash}{fad48621b19e0b53b3b340adf01547a2}
+      \strng{authornamehash}{fad48621b19e0b53b3b340adf01547a2}
+      \strng{authorfullhash}{fad48621b19e0b53b3b340adf01547a2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{US secure hash algorithm 1 (SHA1)}
+      \field{type}{techreport}
+      \field{year}{2001}
     \endentry
   \enddatalist
 \endrefsection

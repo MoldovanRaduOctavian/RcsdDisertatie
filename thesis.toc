@@ -12,13 +12,19 @@
 \contentsline {subsection}{\numberline {4.1.2}Mecanisme de concurență și paralelism}{17}{subsection.4.1.2}%
 \contentsline {subsubsection}{Thread-uri}{18}{section*.2}%
 \contentsline {subsubsection}{Corutine}{21}{section*.3}%
-\contentsline {subsection}{\numberline {4.1.3}Sisteme de build pentru C/C++}{22}{subsection.4.1.3}%
-\contentsline {subsubsection}{GNU Make\blx@tocontentsinit {0}\cite {stallman1988gnu}}{23}{section*.4}%
-\contentsline {subsubsection}{CMake\blx@tocontentsinit {0}\cite {swidzinski2022modern}}{24}{section*.5}%
-\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{25}{chapter.5}%
-\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{26}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conținut}{26}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{26}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{26}{subsection.6.2.1}%
-\contentsline {chapter}{Bibliography}{27}{subsection.6.2.1}%
-\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{29}{appendix.A}%
+\contentsline {subsection}{\numberline {4.1.3}Funcționarea procesului de compilare pentru C/C++}{22}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Sisteme de build pentru C/C++}{24}{subsection.4.1.4}%
+\contentsline {subsubsection}{GNU Make\blx@tocontentsinit {0}\cite {stallman1988gnu}}{24}{section*.4}%
+\contentsline {subsubsection}{CMake\blx@tocontentsinit {0}\cite {swidzinski2022modern}}{26}{section*.5}%
+\contentsline {section}{\numberline {4.2}Arhitectura conceptuală a sistemului}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Interceptorul pentru comenzile de compilare}{30}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Aplicația client}{33}{subsection.4.2.2}%
+\contentsline {subsubsection}{Parsarea comenzilor de compilare}{34}{section*.6}%
+\contentsline {subsubsection}{Extragerea dependințelor pentru fișierele sursă}{34}{section*.7}%
+\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{36}{chapter.5}%
+\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conținut}{37}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{37}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{37}{subsection.6.2.1}%
+\contentsline {chapter}{Bibliography}{38}{subsection.6.2.1}%
+\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{41}{appendix.A}%
