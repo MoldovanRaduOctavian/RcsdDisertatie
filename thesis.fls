@@ -629,6 +629,16 @@ INPUT ./figures/unix_ipc_wrapper.png
 INPUT ./figures/unix_ipc_wrapper.png
 INPUT ./figures/unix_ipc_wrapper.png
 INPUT ./figures/unix_ipc_wrapper.png
+INPUT ./figures/client_sequence_diagram.png
+INPUT ./figures/client_sequence_diagram.png
+INPUT ./figures/client_sequence_diagram.png
+INPUT ./figures/client_sequence_diagram.png
+INPUT ./figures/client_sequence_diagram.png
+INPUT ./figures/compilation_manager.png
+INPUT ./figures/compilation_manager.png
+INPUT ./figures/compilation_manager.png
+INPUT ./figures/compilation_manager.png
+INPUT ./figures/compilation_manager.png
 INPUT ./ch5.tex
 INPUT ./ch5.tex
 OUTPUT ch5.aux

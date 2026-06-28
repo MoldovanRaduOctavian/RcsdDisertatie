@@ -681,3 +681,165 @@ precum și a dimensiunii totale.
 
 Astfel, dacă un fișier deja a fost parcurs, iar dimensiunea sa și valoarea hash-ului nu s-a modificat de la ultima rulare, informațiile despre fișierul
 respectiv sunt extrase direct din cache.
+
+\subsubsection{Gestiunea comunicației cu nodurile de compilare}
+
+Aplicația client joacă rolul de planificator al cererilor de compilare interceptate pe nodurile de
+compilare detectate în rețea.
+
+Pentru fiecare comandă de compilare care a fost interceptată, aplicația creează o sesiune de compilare cu unul dintre serverele disponibile, care se finalizează
+cu primirea fișierului obiect pentru fișierul compilat, în caz de succes. Tratarea fiecărei cereri de compilare folosind o sesiune dedicată
+încurajează crearea unui număr foarte mare de sesiuni independente, care rulează în mod concurent. Adoptarea acestei abordări facilitează paralelizarea 
+procesului de compilare al proiectului, iar numărul maxim de sesiuni de compilare disponibile la un moment de timp este dat de numărul total de sesiuni ce pot
+fi soluționate de către toate nodurile server care fac parte din sistem.
+
+Înainte de inițierea unei sesiuni de compilare cu unul dintre serverele disponibile, aplicația client parsează comanda de compilare pentru a extrage informațiile
+relevante, iar apoi determină lista completă de dependințe pentru compilarea fișierului sursă curent. Comunicarea efectivă începe prin selectarea unui server de compilare
+cu resurse disponibile, iar lista cu servere dispnibile este actualizată în funcție de primirea unor pachete periodice de \textbf{"advertising"} de la fiecare dintre 
+nodurile active.
+
+După selectarea unui server valabil, aplicația client inițiază o conexiune TCP cu nodul server ales și transmite o solicitare de creare a sesiunii de compilare, iar 
+datele transmise împreună cu cererea de creare reprezintă informații utilizate pentru a produce un mediu de compilare asemănător cu mediul de rulare de pe nodul client:
+
+\begin{itemize}
+    \item Identificator unic UUIDv4 al nodului client
+    \item Argumentele din linia de comandă pentru apelul de compilare
+    \item Path-ul către directorul din care s-a comandat compilarea
+    \item Lista cu directoare în care sunt căutate fișierele header
+    \item Lista de dependințe pentru compilarea fișierului, alături de metadatele folosite pentru
+    determinarea integrității fișierelor: dimensiunea fișiserului, hash-ul SHA1 al conținutului
+\end{itemize}
+
+
+În momentul primirii cererii de inițiere a sesiunii, serverul verifică validitatea datelor și creează o înregistrare asociată unei noi sesiuni de compilare,
+asociată cu un identificator unic UUIDv4. Nodul server verifică mai apoi care fișiere din lista de dependințe primită trebuie trimise de către client, întrucât anumite
+dependințe se pot regăsi deja în stocarea nodului. Transmiterea exclusivă a fișierelor absente reduce semnificativ timpul necesar transferului de dependințe.
+
+După confirmarea sesiunii, clientul trimite toate fișiserele solicitate folosind blocuri de dimensiune fixă care încapsulează următoarele informații:
+
+\begin{itemize}
+    \item Identificatorul UUIDv4 de sesiune
+    \item Numărul de secvență pentru blocul respectiv
+    \item Offset-ul blocului în conținutul fișierului trimis
+    \item Marcaj care indică dacă blocul respectiv este ultimul pentru fișierul transferat
+\end{itemize}
+
+După ce nodul server confirmă primirea corectă a unui fișier, clientul continuă în mod automat cu trimiterea blocurilor pentru următorul fișier header. Procesul este repetat
+până când toate dependințele necesare pentru compilarea fișierului sursă al sesiunii au fost primite de către server.
+
+După finalizarea compilării fișierului sursă pe nodul server, fișierul obiect creat este trimis către nodul client folosind aceeași metodă de transfer cu blocuri,
+care este utilizată și pentru transmiterea fișierelor dependință. La recepționarea rezultatului, informațiile legate de compilare sunt salvate și trimise către
+instanța executabilului pentru wrapper-ul de compiler care așteaptă un răspuns ce conține:
+
+\begin{itemize}
+    \item codul numeric de terminare (0 reprezintă succesul, iar orice altă valoare reprezintă eșec)
+    \item Conținutul fluxului \textbf{stdout}
+    \item Conținutul fluxului \textbf{stderr}
+    \item Durata operațiunii de compilare
+\end{itemize}
+
+Figura \ref{fig:client_sequence_diagram} ilustrează interacțiunea dintre o instanță a wrapper-ului pentru compilator,
+aplicația client și aplicația server în contextul stabilirii unei sesiuni de compilare pentru un fișier sursă.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth, height=0.8\linewidth]{figures/client_sequence_diagram.png}
+    \caption{Diagrama de secvență pentru interacțiunea dintre wrapper, client și server}
+    \label{fig:client_sequence_diagram}
+\end{figure}
+
+\newpage
+
+\subsection{Aplicația server}
+
+Aplicația server rulează pe nodurile de compilare și are responsabilitatea de a administra resursele de calcul disponibile pe nodul server
+astfel încât compilarea fișierelor sursă, solicitate de către client, să se desfășoare cu cât mai puțin overhead efectiv. Spre deosebire de
+aplicația client, a cărei arhitectură a fost prezentată anterior, aplicația server trebuie să gestioneze în mod concurent comunicarea cu unul
+sau mai mulți clienți, să organizeze pentru fiecare client detectat un mediu de rulare și stocare a fișierelor cât mai apropiat de cel de pe nodul client
+și să realizeze compilarea fișierelor sursă într-o manieră cât mai eficientă.
+
+\subsubsection{Gestiunea nodurilor client și a sesiunilor}
+
+De fiecare dată când un nou nod client, necunoscut până acum, încearcă sa inițieze o conexiune către serverul de compilare, aplicația server
+creează o înregistrare care modelează ultima stare cunoscută a clientului. Se centralizează toate informațiile clientului necesare pentru creearea și soluționarea
+de noi sesiuni de compilare remote:
+
+\begin{itemize}
+    \item Path-ul către directorul de lucru asociat clientului identificat folosind un identificator UUIDv4
+    \item Lista cu toate sesiunile de compilare active al clientului respectiv
+    \item Lista cu starea fișierelor-dependință pentru toate sesiunile de compilare create pentru client
+\end{itemize}
+
+De asemenea, aplicația server ține în evidență și o listă globală cu starea tuturor fișierelor header recepționate de la nodurile client, astfel
+încât dacă o sesiune de compilare declanșată de un client are nevoie de dependințe care au fost transferate pentru a soluționa o sesiune de compilare 
+din trecut, să nu se mai retrimită dependințele deja existente în stocarea nodului server.
+
+\subsubsection{Reconstruirea arborelui de fișiere pentru client}
+
+Ficare nod client are un sistem de fișiere dedicat în cadrul ierarhiei de fișiere de pe nodul server, astfel încât fiecare path detectat ăn comanda de compilare
+primită de la client, precum și path-ul directorului unde a fost apelată inițial compilarea, să aibă un corespondent direct în spațiul de stocare al nodului server.
+Întrucât toate dependințele recepționate pentru clientul în cauză sunt stocate în cadrul ierarhiei de directoare asociate clientului, se menține locația relativă
+a fișierelor header față de fișierul sursă de compilat în momentul rulării comenzii de compilare. Toată structura de fișiere a proiectului compilat 
+va avea o reprezentare identică în sistemul de fișiere al nodului server. Astfel, în momentul în care compilatorul 
+analizează directivele \#include în etapa de preprocesare, toate fișierele header necesare pot fi găsite fără apariția erorilor de compilare.
+
+Întrucât rădăcina sistemului de fișiere pentru fiecare client o constituie un director cu numele dat de identificatorul unic UUIDv4 al clientului,
+se păstrează o izolare complete între mediile de lucru pentru clienți diferiți, ceea ce elimină apariția conflictelor între sesiunile de compilare
+ale unor clienți diferiți, care depind de fișiere cu același path.
+
+În timpul unei sesiuni de compilare, toate path-urile locale primite de la un client anume sunt transformate în path-uri specifice mediului de lucru pentru
+acel client, în ierarhia de directoare a nodului server. Spre exemplu, acest path:
+
+\begin{verbatim}
+    /home/radu/distbuild/DistBuildSys/src/client_session.hpp
+\end{verbatim}
+
+, va avea următoarea formă pe nodul server, în urma transformării:
+
+\begin{verbatim}
+    /71d4c98e-5f3a-4a67-bd1f-92e8c6b0a73d/.../DistBuildSys/src/client_session.hpp
+\end{verbatim}
+
+\subsubsection{Gestiunea stării dependințelor}
+
+Pentru fiecare fișier care a fost folosit ca dependință pe server este menținută o structură care indică disponibilitatea acestuia
+în spațiul de stocare al nodului server. Aceste informații permit identificarea facilă a dependințelor care deja sunt existent la momentul
+creării unei noi sesiuni, pentru a se evita retrimiterea inutilă de dependențe redundante pentru sarcinile succesive de compilare. Fiecare fișier
+are stocată valoarea hash SHA1 caracteristică conținutului și dimensiunea conținutului, pentru a detecta situațiile în care o dependință a fost folosită
+în trecut pe server, dar și-a modificat conținutul de la ultima utilizare.
+
+\subsubsection{Apelarea compilatorului}
+
+Executarea comenzilor de compilare este efectuată de către un modul care gestionează toate operațiunile de compilare. Acest modul
+are rolul de a decupla firele de execuție care rulează sarcinile de comunicare cu nodul client, în cadrul sesiunii, și firele de execuție
+pe care rulează logica necesară pentru realizarea efectivă a proceselor de compilare. Această abordare oferă certitudinea că indiferent câte sesiuni 
+de compilare sunt aflate în desfășurare, compilarea se efectuează într-un mediu separat, fără a fi afectată perfomanța de compilare în cazul
+încărcării însemnate a nodului server.
+
+Din punct de vedere arhitectural, componenta implementează un model clasic \textbf{producător-consumator}, unde consumatorii reprezintă o colecție de 
+thread-uri ce fac parte dintr-un \textbf{thread pool} a cărui dimensiune este fixă și se setează la pornirea aplicației server. Componentele modulului
+sunt următoarele:
+
+\begin{itemize}
+    \item Producători - instanțele active ale sesiunilor de compilare, care generază job-uri de compilare
+    \item Consumatori - thread-urile din thread pool-ul modulului, care preiau cererile și lansează câte un proces nou al compilatorului pentru fiecare
+    cerere
+    \item Coada de job-uri - solicitările de compilare sunt stocate într-o structură \textbf{FIFO} până când unul dintrea thread-urile din pool își termină
+    sarcina curentă și preia un nou job de compilare din queue
+\end{itemize}
+
+Pentru a menține evidența resurselor de compilare disponibile, de fiecare dată când unul dintre thread-uri preia un job de compilare, un contor atomic,
+care reprezintă numărul de poziții libere pentru compilare, este decrementat, iar la finalul sarcinii, contorul atomic este incrementat.
+
+Figura \ref{fig:compilation_manager} ilustrează modul în care cererile de compilare sunt preluate de către
+thread-urile managerului de compilare.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth, height=0.9\linewidth]{figures/compilation_manager.png}
+    \caption{Funcționarea managerului de compilare}
+    \label{fig:compilation_manager}
+\end{figure}
+
+\section{Aspecte de implementare}
+

@@ -21,10 +21,17 @@
 \contentsline {subsection}{\numberline {4.2.2}Aplicația client}{33}{subsection.4.2.2}%
 \contentsline {subsubsection}{Parsarea comenzilor de compilare}{34}{section*.6}%
 \contentsline {subsubsection}{Extragerea dependințelor pentru fișierele sursă}{34}{section*.7}%
-\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{36}{chapter.5}%
-\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{37}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conținut}{37}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{37}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{37}{subsection.6.2.1}%
-\contentsline {chapter}{Bibliography}{38}{subsection.6.2.1}%
-\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{41}{appendix.A}%
+\contentsline {subsubsection}{Gestiunea comunicației cu nodurile de compilare}{35}{section*.8}%
+\contentsline {subsection}{\numberline {4.2.3}Aplicația server}{38}{subsection.4.2.3}%
+\contentsline {subsubsection}{Gestiunea nodurilor client și a sesiunilor}{38}{section*.9}%
+\contentsline {subsubsection}{Reconstruirea arborelui de fișiere pentru client}{38}{section*.10}%
+\contentsline {subsubsection}{Gestiunea stării dependințelor}{39}{section*.11}%
+\contentsline {subsubsection}{Apelarea compilatorului}{39}{section*.12}%
+\contentsline {section}{\numberline {4.3}Aspecte de implementare}{41}{section.4.3}%
+\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{42}{chapter.5}%
+\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{43}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conținut}{43}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{43}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{43}{subsection.6.2.1}%
+\contentsline {chapter}{Bibliography}{44}{subsection.6.2.1}%
+\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{47}{appendix.A}%
