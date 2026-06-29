@@ -2424,6 +2424,13 @@
     <bcf:citekey order="57" intorder="1">distcc</bcf:citekey>
     <bcf:citekey order="58" intorder="1">stevens2013advanced</bcf:citekey>
     <bcf:citekey order="59" intorder="1">eastlake2001us</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">varda2008protocolbuffers</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">indrasiri2020grpc</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">ritchie1978c</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">cerf1974protocol</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">kohlhoff2013boost</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">boost_libraries</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">c++2020iso</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

@@ -28,10 +28,12 @@
 \contentsline {subsubsection}{Gestiunea stării dependințelor}{39}{section*.11}%
 \contentsline {subsubsection}{Apelarea compilatorului}{39}{section*.12}%
 \contentsline {section}{\numberline {4.3}Aspecte de implementare}{41}{section.4.3}%
-\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{42}{chapter.5}%
-\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{43}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conținut}{43}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{43}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{43}{subsection.6.2.1}%
-\contentsline {chapter}{Bibliography}{44}{subsection.6.2.1}%
-\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{47}{appendix.A}%
+\contentsline {subsection}{\numberline {4.3.1}Implementarea protocolului de comunicație}{41}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Asigurarea concurenței în procesare și comunicare}{46}{subsection.4.3.2}%
+\contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{50}{chapter.5}%
+\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{51}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conținut}{51}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{51}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{51}{subsection.6.2.1}%
+\contentsline {chapter}{Bibliography}{52}{subsection.6.2.1}%
+\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{55}{appendix.A}%

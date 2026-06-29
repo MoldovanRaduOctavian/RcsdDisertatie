@@ -843,3 +843,391 @@ thread-urile managerului de compilare.
 
 \section{Aspecte de implementare}
 
+În această secțiune descriem câteva aspecte de relevante care au fost identificate în urma implementării arhitecturii conceptuale,
+descrisă în secțiunea anterioară. De asemenea, argumentăm motivele din spatele alegerii tehnologiilor utilizate și prezentăm modul 
+în care acestea afectează structura implementării.
+
+\subsection{Implementarea protocolului de comunicație}
+
+Buna funcționare a sistemului de compilare distribuită se bazează pe comunicarea eficientă, în rețea între nodurile client și server
+participante, ceea ce a creat necesitatea proiectării unui protocol de comunicație cu o structură cât mai expresivă a mesajelor, care să
+faciliteze implementarea cât mai facilă a unei metode de comunicare performante. 
+
+Întrucât s-a optat pentru implementarea componentelor sistemului de compilare distribuit folosind limbajul \textbf{C++}, o metodă comodă
+de a defini maniera de serializare a datelor transferate între client și server o reprezintă utilizarea \textbf{Protocol Buffers}\cite{varda2008protocolbuffers},
+dezvoltat de către \textbf{Google}.
+
+\textbf{Protobuf} reprezintă un limbaj standardizat de definire a structurii datelor transmise, de obicei în mediul \text{web} și reprezintă
+un înlocuitor pentru arhicunoscutul limbaj \textbf{XML}. Protobuf oferă posibilitatea definirii unor structuri de mesaje independente de platforma
+care le utilizează și stă la baza structurilor de date tranzacționate de framework-uri pentru \textbf{remote procedure call} precum \textbf{gRPC}\cite{indrasiri2020grpc}.
+
+Pentru a defini setul de mesaje folosite pentru implementarea protocolului de comunicare, structura dorită se modelează folosind un limbaj comun,
+care se adaugă în fișiere cu extensia \textbf{.proto}. Un nou tip de mesaj se definește folosind următoarea structură:
+
+\begin{lstlisting}[language={},caption={Definiția unui mesaj în Protobuf},label={lst:protobuf_example}]
+message NUME_MESAJ {
+    REGULA_MEMBRU TIP_MEMBRU NUME_MEMBRU = NUMAR_ID_MESAJ
+    ....
+    required string name = 1;
+    optional int32 age = 2;
+    repeated string email = 3;
+}
+\end{lstlisting}
+
+Pentru fiecare membru component al unui tip de mesaje, este obligatoriu să precizăm o regulă de populare, dintre cele trei disponibile:
+\textbf{optional, required, repeated}. Membrii cu tipul \textbf{repeated}, se pot repeta fără o limită superioară, sau pot să nu apară deloc.
+De asemenea, fiecare membru trebuie să aibă setat un număr de identificare unic, iar valorile cuprinse între 19000 și 19999 sunt rezervate și
+nu pot să fie folosite.
+
+O altă funcționalitate utilă pusă la dispoziție de limbajul de serializare \textbf{Protobuf} este structura \textbf{oneof}, ce permite gruparea
+mai multor tipuri diferite de mesaje într-o structură logică unică. Mecanismul oneof devine foarte util în situațiile în care un mesaj
+poate avea mai multe structuri posibile, însă doar una singură este valabilă la un anumit moment de timp. Acest mecanism se aseamănă cu 
+keyword-ul \textbf{union} din limbajul \textbf{C}\cite{ritchie1978c}, fiind o unealtă des utilizată în definirea structurii pachetelor
+pentru protocoalele de comunicație. Exemplul următor prezintă folosirea mecanismului \textbf{oneof}, pentru definirea pachetelor de pot fi transmise
+de către nodurile client ale sistemului distribuit:
+
+\begin{lstlisting}[language={},caption={Mesajele transmise de către nodul client},label={lst:protobuf_oneof}]
+message ClientMessage {
+  oneof content {
+    ClientSessionStartRequest session_start = 1;
+    ClientSessionAbortRequest session_abort = 2;
+    ClientFileChunkUploadRequest file_chunk_upload = 3;
+  }
+}
+\end{lstlisting}
+
+După ce s-a completat un fișier \textbf{.proto} cu structura pachetelor care vor fi transferate folosind protocolul de comunicare ales, fișierul
+.proto este transformat într-o serie de fișiere sursă ce conțin instrucțiuni din limbajul de programare folosit pentru dezvoltarea aplicației, în cazul
+nostru, \textbf{C++}. Pentru transformare, se folosește compilatorul \textbf{Protoc} (Protocol buffers compiler), care este invocat folosind o astfel de comandă:
+
+\begin{verbatim}
+    protoc --cpp_out=./support ./distbuild_messages.proto
+\end{verbatim}
+
+În urma apelului către compilatorul protoc, se creează două fișiere C++, un fișier sursă și un fișier header, care conțin clase ce modelează structura descrisă a pachetelor,
+precum și definiții de metode utilizate pentru a manipula pachetele în cauză. Procesul de compilare pentru fișierele Protobuf este exemplificat de Figura \ref{fig:protobuf_compiler}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth, height=0.46\linewidth]{figures/protobuf_compiler.png}
+    \caption{Compilarea fișierelor .proto}
+    \label{fig:protobuf_compiler}
+\end{figure}
+
+Pe baza arhitecturii conceptuale descrise anterior, tipurile de mesaje transferate în comunicarea dintre nodurile client și cele server sunt următoarele,
+definite folosind limbajul standardizat \textbf{Protobuf}:
+
+\begin{lstlisting}[language={},caption={Mesajele transmise de sistemul de compilare distribuită},label={lst:protobuf_oneof}]
+// Client messages
+message ClientMessage {
+  oneof content {
+    ClientSessionStartRequest session_start = 1;
+    ClientSessionAbortRequest session_abort = 2;
+    ClientFileChunkUploadRequest file_chunk_upload = 3;
+  }
+}
+
+message ClientSessionStartRequest {
+  string client_id = 1;
+  string client_working_dir = 2;
+  string client_source_file = 3;
+  string client_compiler = 4;
+  repeated string client_cmd_line_args = 5;
+  repeated string client_idirs = 6;
+  repeated FileInfo required_files_info = 7;
+}
+
+message ClientSessionAbortRequest {
+  string session_id = 1;
+  string client_id = 2;
+}
+
+message ClientFileChunkUploadRequest {
+  string session_id = 1;
+  string filename = 2;
+  uint64 sequence_no = 3;
+  uint64 offset = 4;
+  bytes data = 5;
+  bool is_last_chunk = 6;
+}
+
+// Server messages
+message ServerMessage {
+  oneof content {
+    ServerSessionConfirmedResponse session_confirmed = 1;
+    ServerSessionAbortResponse session_abort = 2;
+    ServerFileUpCompleteResponse file_up_complete = 3;
+    ServerAllReqUploadCompleteResponse all_req_up_complete = 4;
+    ServerObjFileChunkResponse obj_file_chunk_transmit = 5;
+  }
+}
+
+message ServerSessionConfirmedResponse {
+  string session_id = 1;
+  repeated string required_files = 2;
+}
+
+message ServerSessionAbortResponse {
+  string session_id = 1;
+  string client_id = 2;
+}
+
+message ServerFileUpCompleteResponse {
+  string session_id = 1;
+  string filename = 2;
+  bool success = 3;
+}
+
+message ServerAllReqUploadCompleteResponse {
+  string session_id = 1;
+}
+
+message ServerObjFileChunkResponse {
+  string session_id = 1;
+  int32 compiler_exit_code = 2;
+  int32 compiler_call_duration = 3;
+  string compiler_stdout = 4;
+  string compiler_stderr = 5;
+  uint64 filesize = 6;
+  bool is_last_chunk = 7;
+  bytes data = 8;
+}
+\end{lstlisting}
+
+În urma compilării structurilor prezentate cu \textbf{Protoc}, rezultă fișierele \textbf{distbuild\_messages.pb.h}
+și \textbf{distbuild\_messages.pb.cc}, care pot fi utilizate în aplicațiile dezvoltate prin includerea fișierului 
+header: \textbf{\#include "distbuild\_messages.pb.h"}.
+
+\newpage
+
+În ceea ce privește metoda de transport aleasă pentru a susține traficul pachetelor definite anterior între nodurile
+client și nodurile server, alegerea a fost făcută pe baza unui set minimal de cerințe operaționale. Transferul de 
+fișiere este operațiunea de comunicare care generează volumul cel mai mare de trafic, deci este 
+\textbf{absolut necesară} utilizarea unui protocol care:
+
+\begin{itemize}
+    \item să asigure transmiterea cu succes a fiecărui pachet trimis, chiar dacă trebuie ca anumite pachete să fie
+    retrimise din cauza erorilor de transmisie
+    \item să asigure că numeroasele pachete cu blocuri de date din fișierele dependință fragmentate sunt primite
+    tot timpul în aceeași ordine în care au fost trimise, deoarece operațiunea de reordonare a pachetelor primite
+    la nivelul nodului destinatar ar introduce pierderi de performanță la nivelul comunicării
+    \item să fie bazat pe stabilirea unei conexiuni stabile între două entități care comunică, ca să modeleze fidel relația
+    \textbf{client-server}, dintre sistemul de calcul care solicită compilarea unui proiect și nodurile care efectuează
+    compilarea efectivă
+\end{itemize}
+
+Având în vedere setul de cerințe enunțat, protocolul de transport ales este \textbf{Transmission Control Protocol (TCP)}\cite{cerf1974protocol}.
+TCP pune la dispoziție un mecanism fiabil de transmitere a datelor, întrucât garantează livrarea tuturor pachetelor prin
+introducerea confirmărilor de primirea și a retransmiterii automate a datelor corupte sau pierdute. Mai mult deât atât, TCP
+asigură livrarea datelor în aceeași ordine în care au fost trimise, eliminând astfel necesitatea de a implementa mecanisme
+auxiliare de reordonare a datelor la nivelul aplicației.
+
+Orientarea pe stabilirea unei conexiuni între părțile comunicante permite stabilirea unei sesiuni de comunicație între nodurile
+client și cele server, înainte de a se începe transferul efectiv de mesaje, fapt ce modelează în mod natural interacțiunea
+dintre un nod care solicită compilarea și nodurile care execută sarcina de compilare.
+
+În consecință, utilizarea protocolului \textbf{TCP} ca modalitate de transport simplifică implementarea protocolului 
+sistemului de compilare distribuită, și facilitează concentrarea asupra operațiunilor specifice
+logicii de distribuire a compilării, fără a fi necesară asigurarea explicită a fiabilității comunicării.
+
+Înainte ca un mesaj să fie transmis prin conexiunea TCP formată între client și server pentru a efectua compilarea unui fișier
+sursă, acesta este serializat folosind structurile definite de către compilatorul \textbf{Protobuf}, de unde rezultă o 
+serie de octeți. Întrucât \textbf{TCP} este un protocol \textbf{stream-oriented}, el nu păstrează o delimitare clară
+între mesajele sistemului, ci transmite un flux continuu de octeți. Din acest motiv, fiecare mesaj trebuie să fie introdus
+într-un \textbf{frame}, prin adăugarea unei secțiuni antet de dimensiune fixă, exprimată folosind un întreg fără semn de 32 de biți,
+ce conține dimensiunea în octeți a mesajului serializat. Header-ul mesajului este convertit apoi în formatul \textbf{network byte order}.
+Imediat după antetul minimal, se introduce conținutul serializat al mesajului Protobuf. 
+
+Structura unui pachet al sistemului de compilare distribuită este ilustrată în Figura \ref{fig:serialized_message}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth, height=0.2\linewidth]{figures/serialized_message.png}
+    \caption{Structura unui mesaj trimis prin TCP}
+    \label{fig:serialized_message}
+\end{figure}
+
+\subsection{Asigurarea concurenței în procesare și comunicare}
+
+În scenariul obișnuit de utilizare al sistemului de compilare distribuită, se presupune că fiecare client trebuie să gestioneze
+în mod simultan un număr foarte mare de conexiuni TCP, cu nodurile responsabile de compilare, întrucât fiecare sesiune de compilare
+necesită deschiderea unei noi conexiuni TCP care să permită transferul fișierelor-dependință necesare compilării, precum și a fișierului
+obiect rezultat.
+
+Având în vedere această caracteristică a sistemului, devine evidentă nevoia de a implementa operațiunile de procesare și comunicare
+folosind metode care să asigure \textbf{scalabilitatea} și deteriorarea minimă a performanței sistemului pe măsură ce numărul de noduri
+comunicante crește. Prin urmare am optat pentru utilizarea librăriei \textbf{Boost ASIO}\cite{kohlhoff2013boost}, pentru \textbf{I/O asincron}, 
+care face parte din suita de librării \textbf{Boost}\cite{boost_libraries}, pentru limbajul \textbf{C++}. 
+
+De asemenea, în combinație cu mecanismele de I/O asincron oferite de \textbf{Boost ASIO}, implementarea utilizează și \textbf{corutinele introduse odată
+cu standardul C++20}\cite{c++2020iso}, care permit exprimarea logicii asincrone, exprimată în mod normal folosind \textbf{funcții callback în cascadă},
+într-un mod secvențial și intuitiv, care nu blochează firele de execuție ale aplicației. Integrarea funcțiilor corutină cu librăria
+Boost ASIO, prin intermediul mecanismelor \textbf{co\_await} și \textbf{co\_spawn}, simplifică gestionarea operațiunilor de comunicare în rețea.
+
+Așadar, fiecare sesiune de compilare poate fi implementată elegant sub forma unei ierarhii de corutine, capabilă să își suspende execuția în timp
+ce operațiunile de scriere sau citire nu pot fi executate, în timp de execuția se reia când apelurile respective pot fi finalizate. Această abordare
+menține avantajele modelului de comunicare asicron și permite gestionarea în mod eficient a unui număr foarte mare the conexiuni client-server
+concurente.
+
+Tabelul \ref{tab:asio_comparison} prezintă o comparație între abordările descrise anterior pentru implementarea de operațiuni asincrone folosind Boost ASIO: varianta cu funcții
+callback apelate la finalizarea operațiilor asincrone și varianta care utilizează corutinele din C++20. În cazul folosirii de callback-uri, logica devine
+fragmentată, iar logica este construită folosind lanțuri de funcții callback imbricate, ceea ce face codul să fie dificil de urmărit și întreținut.
+
+\begin{table}[t]
+\centering
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{|p{0.48\textwidth}|p{0.48\textwidth}|}
+\hline
+
+\textbf{Funcții callback} & \textbf{Corutine} \\
+\hline
+
+{\scriptsize
+\begin{lstlisting}[language=C++]
+void read_message()
+{
+  auto self = shared_from_this();
+
+  async_read(socket_,
+    buffer(&inbound_size_,
+           sizeof(inbound_size_)),
+    [this, self](error_code ec,
+                 std::size_t)
+    {
+      if (ec) return handle_error(ec);
+
+      inbound_size_ = ntohl(inbound_size_);
+      inbound_data_.resize(inbound_size_);
+
+      read_body();
+    });
+}
+
+void read_body()
+{
+  auto self = shared_from_this();
+
+  async_read(socket_,
+    buffer(inbound_data_.data(),
+           inbound_data_.size()),
+    [this, self](error_code ec,
+                 std::size_t)
+    {
+      if (ec) return handle_error(ec);
+
+      handle_message(inbound_data_);
+      read_message();
+    });
+}
+\end{lstlisting}
+}
+&
+{\scriptsize
+\begin{lstlisting}[language=C++]
+awaitable<void> run()
+{
+  try
+  {
+    for (;;)
+    {
+      uint32_t net_size = 0;
+
+      co_await async_read(
+        socket_,
+        buffer(&net_size,
+               sizeof(net_size)),
+        use_awaitable);
+
+      size_t size = ntohl(net_size);
+      std::string data(size, '\0');
+
+      co_await async_read(
+        socket_,
+        buffer(data.data(),
+               data.size()),
+        use_awaitable);
+
+      handle_message(data);
+    }
+  }
+  catch (...)
+  {
+    handle_error();
+  }
+}
+\end{lstlisting}
+}
+\\ \hline
+
+\end{tabular}
+
+\caption{Boost ASIO cu funcții callback vs. corutine din C++20}
+\label{tab:asio_comparison}
+\end{table}
+
+Varianta cu corutine permite exprimarea logicii în mod secvențial, ceea ce îmbunătățește lizibilitatea codului.
+
+În continuare, vom prezenta modul în care corutinele sunt utilizate pentru a implementa metoda
+de primire și de tratare a mesajelor din cadrul unei sesiuni de compilare, folostă atât de către nodurile client, 
+cât și de nodurile server. 
+
+Pentru context, vom oferi o porțiune de pseudocod asupra căreia vom aduce explicații pentru a facilita o înțelegere
+mai bună a interacțiunii dintre nodurile client și server.
+
+\newpage
+
+\begin{lstlisting}[language=C++, caption={Ciclul de procesare a mesajelor pentru nodul server}]
+awaitable handle_server_session()
+{
+  while (session is active)
+  {
+    co_await receive_message(message)
+
+    switch (message.type)
+    {
+      case SESSION_START:
+        update_last_active_time()
+        break
+
+      case FILE_CHUNK_UPLOAD:
+        update_last_active_time()
+
+        chunk = extract_file_chunk(message)
+
+        success = process_file_chunk(chunk)
+
+        if (!success)
+        {
+          send_session_abort()
+        }
+        break
+
+      case SESSION_ABORT:
+        terminate_session()
+        co_return
+
+      default:
+        terminate_session()
+        co_return
+    }
+  }
+}
+\end{lstlisting}
+
+\newpage
+
+În secțiunea de pseudocod prezentată, cele mai importante aspecte legate funcționarea de procesare a mesajelor 
+dintr-o sesiune de compilare, pentru nodul server, sunt următoarele:
+
+\begin{itemize}
+    \item se utilizează instrucțiunea \textbf{co\_await} pentru a aștepta în mod non-blocant primirea unui mesaj
+    de la clientul angrenat în interacțiune
+    \item în momentul primirii unui mesaj, execuția se reia automat, fără a fi nevoie de o funcție callback explicită
+    care să trateze evenimentul
+    \item tratarea tuturor tipurilor de mesaje generate de client se face unificat, în cadrul blocului \textbf{switch}
+    \item în cazul apariției unei erori (primirea unui tip de mesaj necunoscut, spre exemplu), sesiunea este încheiată
+    în mod controlat, iar ciclul de primire al pachetelor este întrerupt
+    \item bucla de primire a mesajelor este păstrată activă pe toată durata interacțiunii dintre client și server
+\end{itemize}

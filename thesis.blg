@@ -1,16 +1,16 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[71] biber:340> INFO - === Sb iun 27, 2026, 22:15:32
+[71] biber:340> INFO - === Ma iun 30, 2026, 00:22:31
 [84] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[147] Biber.pm:979> INFO - Found 35 citekeys in bib section 0
-[161] Biber.pm:4419> INFO - Processing section 0
-[171] Biber.pm:4610> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[173] bibtex.pm:1713> INFO - LaTeX decoding ...
-[200] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
-[394] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
-[394] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[394] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ro-RO'
-[414] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[427] bbl.pm:763> INFO - Output to thesis.bbl
-[427] Biber.pm:131> WARN - Duplicate entry key: 'stroustrup2013c++' in file 'thesis.bib', skipping ...
-[427] Biber.pm:133> INFO - WARNINGS: 1
+[146] Biber.pm:979> INFO - Found 42 citekeys in bib section 0
+[158] Biber.pm:4419> INFO - Processing section 0
+[167] Biber.pm:4610> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[168] bibtex.pm:1713> INFO - LaTeX decoding ...
+[201] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
+[426] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
+[427] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[427] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ro-RO'
+[451] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[465] bbl.pm:763> INFO - Output to thesis.bbl
+[465] Biber.pm:131> WARN - Duplicate entry key: 'stroustrup2013c++' in file 'thesis.bib', skipping ...
+[465] Biber.pm:133> INFO - WARNINGS: 1
