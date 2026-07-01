@@ -31,9 +31,10 @@
 \contentsline {subsection}{\numberline {4.3.1}Implementarea protocolului de comunicație}{41}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Asigurarea concurenței în procesare și comunicare}{46}{subsection.4.3.2}%
 \contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice și experimentale}{50}{chapter.5}%
-\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{51}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conținut}{51}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{51}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{51}{subsection.6.2.1}%
-\contentsline {chapter}{Bibliography}{52}{subsection.6.2.1}%
-\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{55}{appendix.A}%
+\contentsline {section}{\numberline {5.1}Structura mediului de rulare}{50}{section.5.1}%
+\contentsline {chapter}{Capitolul{} \numberline {6}Concluzii}{52}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conținut}{52}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{52}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{52}{subsection.6.2.1}%
+\contentsline {chapter}{Bibliography}{53}{subsection.6.2.1}%
+\contentsline {chapter}{Anexa{} \numberline {A}Pseudo-cod sau cod (dacă există)}{56}{appendix.A}%

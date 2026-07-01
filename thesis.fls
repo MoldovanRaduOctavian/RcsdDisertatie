@@ -677,6 +677,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT ./figures/network_topology.png
+INPUT ./figures/network_topology.png
+INPUT ./figures/network_topology.png
+INPUT ./figures/network_topology.png
+INPUT ./figures/network_topology.png
 INPUT ./ch6.tex
 INPUT ./ch6.tex
 OUTPUT ch6.aux
